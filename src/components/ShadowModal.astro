@@ -1,0 +1,16 @@
+---
+const { active = false, onClose = null } = Astro.props;
+---
+<div id="shadow-modal" class={`modal fixed inset-0 z-[2000] flex items-center justify-center bg-[rgba(10,10,20,0.85)] transition-opacity duration-700 ${active ? 'active opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+  on:click={(e) => { if (e.target.id === 'shadow-modal' && onClose) onClose(); }}>
+  <div class="modal-content bg-[var(--background-light)] rounded-2xl max-w-md w-full p-10 relative shadow-2xl text-white opacity-100 transform-none filter-none transition-all">
+    <span id="close-shadow-modal" class="close-modal absolute top-3 right-5 text-3xl text-[var(--accent-color)] cursor-pointer hover:text-white transition-colors" on:click={() => onClose && onClose()}>&times;</span>
+    <h2 class="text-xl font-bold mb-4 text-center">¿Qué ocurre cuando pierdes todas tus máscaras?</h2>
+    <p class="mb-4 text-center">
+      Cuando el Caballero pierde todas sus máscaras, muere y deja atrás una "Sombra" en el lugar donde fue derrotado. Esta sombra contiene toda la Geo (moneda) que llevabas y parte de tu alma máxima se ve reducida. Para recuperar tu Geo y tu alma completa, debes regresar al lugar donde caíste y derrotar a tu propia sombra. Si mueres de nuevo antes de recuperar la sombra, perderás permanentemente toda la Geo que llevaba tu sombra anterior.
+    </p>
+    <p class="text-center mt-6">
+      <img src="/img/shadow.png" alt="Sombra Hollow Knight" class="max-w-[120px] mx-auto opacity-80" />
+    </p>
+  </div>
+</div>

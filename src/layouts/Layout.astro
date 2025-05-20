@@ -1,22 +1,58 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+---
+import Header from "../components/Header.astro";
+---
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hollow Knight - Hallownest</title>
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class="bg-[var(--background-dark)] text-[var(--text-primary)] font-inter relative">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-[var(--background-dark)] flex flex-col items-center justify-center z-[3000] transition-opacity duration-700">
+      <img src="/img/hollow-knight-Logo.png" alt="Cargando" class="w-24 animate-bounce mb-6 opacity-90" />
+      <div class="loader-bar w-32 h-2 bg-gradient-to-r from-[var(--accent-color)] to-[var(--secondary-color)] rounded-full animate-pulse"></div>
+      <span class="mt-6 text-white/80 text-lg tracking-wider">Cargando Hallownest...</span>
+    </div>
+    <!-- Botón Volver Arriba -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 z-[2000] bg-[var(--accent-color)] text-white rounded-full p-3 shadow-lg opacity-0 pointer-events-none transition-all duration-500 hover:bg-[var(--secondary-color)] hover:scale-110" aria-label="Volver arriba">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+      </svg>
+    </button>
+    <Header />
+    <main class="pt-24">
+      <slot />
+    </main>
+    <script is:inline>
+      // Preloader
+      window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+          preloader.style.opacity = '0';
+          setTimeout(() => { preloader.style.display = 'none'; }, 800);
+        }
+      });
+      // Botón volver arriba
+      const backToTopBtn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.style.opacity = '1';
+          backToTopBtn.style.pointerEvents = 'auto';
+        } else {
+          backToTopBtn.style.opacity = '0';
+          backToTopBtn.style.pointerEvents = 'none';
+        }
+      });
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    </script>
+  </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
