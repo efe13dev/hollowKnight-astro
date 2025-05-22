@@ -1,40 +1,102 @@
 ---
 import ShadowModal from "./ShadowModal.astro";
-let modalActive = false;
-let shadowImgEl;
-
-const openModal = () => { modalActive = true; };
-const closeModal = () => { modalActive = false; };
-
+let shadowImgEl: HTMLElement | null = null;
 ---
-<section id="historia" class="story py-32 px-4 bg-gradient-to-b from-black/80 via-[#18192b] via-70% to-[#18192b] relative overflow-hidden">
-  <h2 class="text-center text-3xl md:text-4xl lg:text-5xl font-cinzel font-bold mb-20 uppercase tracking-widest text-white drop-shadow-[0_0_10px_rgba(138,43,226,0.5)] relative inline-block left-1/2 -translate-x-1/2">
+
+<section
+  id="historia"
+  class="story py-16 px-4 bg-gradient-to-b from-black/80 via-[#18192b] via-70% to-[#18192b] relative overflow-hidden"
+>
+  <h2
+    class="text-center text-3xl md:text-4xl lg:text-5xl font-cinzel font-bold mb-20 uppercase tracking-widest text-white drop-shadow-[0_0_10px_rgba(138,43,226,0.5)] relative inline-block left-1/2 -translate-x-1/2"
+  >
     La Leyenda de Hallownest
-    <span class="block absolute left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent bottom-[-15px]"></span>
-    <span class="block absolute left-1/6 w-4/6 h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent bottom-[-20px] opacity-70"></span>
+    <span
+      class="block absolute left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent bottom-[-15px]"
+    ></span>
+    <span
+      class="block absolute left-1/6 w-4/6 h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent bottom-[-20px] opacity-70"
+    ></span>
   </h2>
-  <div class="story-content max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center relative z-10">
-    <div class="story-text text-lg leading-relaxed relative p-10 rounded-xl bg-[rgba(20,20,30,0.6)] shadow-xl border border-white/10 backdrop-blur">
+  <div
+    class="story-content max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center relative z-10"
+  >
+    <div
+      class="story-text text-lg leading-relaxed relative p-10 rounded-xl bg-[rgba(20,20,30,0.6)] shadow-xl border border-white/10 backdrop-blur"
+    >
       <p class="mb-8 pl-2 text-white/90 text-pretty relative">
-        <span class="first-letter float-left text-6xl md:text-7xl font-bold mr-2 mt-1 mb-[-0.1em] text-[var(--accent-color)] drop-shadow-[0_0_15px_rgba(138,43,226,0.7)] font-cinzel bg-gradient-to-br from-[#8a2be2] to-[#00bfff] bg-clip-text text-transparent relative z-10">B</span>
-        ajo el pueblo abandonado de Dirtmouth se extienden las ruinas de Hallownest, un otrora próspero reino de insectos que yace en ruinas tras una misteriosa plaga. Lo que una vez fue una civilización floreciente bajo el gobierno del Rey Pálido, ahora es un laberinto de túneles abandonados y ciudades en ruinas, habitado por criaturas corrompidas por una fuerza antigua conocida como la Infección.
+        <span
+          class="first-letter float-left text-6xl md:text-7xl font-bold mr-2 mt-1 mb-[-0.1em] text-[var(--accent-color)] drop-shadow-[0_0_15px_rgba(138,43,226,0.7)] font-cinzel bg-gradient-to-br from-[#8a2be2] to-[#00bfff] bg-clip-text text-transparent relative z-10"
+          >B</span
+        >
+        ajo el pueblo abandonado de Dirtmouth se extienden las ruinas de Hallownest,
+        un otrora próspero reino de insectos que yace en ruinas tras una misteriosa
+        plaga. Lo que una vez fue una civilización floreciente bajo el gobierno del
+        Rey Pálido, ahora es un laberinto de túneles abandonados y ciudades en ruinas,
+        habitado por criaturas corrompidas por una fuerza antigua conocida como la
+        Infección.
       </p>
       <p class="pl-2 text-white/90 text-pretty relative">
-        <span class="first-letter float-left text-6xl md:text-7xl font-bold mr-2 mt-1 mb-[-0.1em] text-[var(--accent-color)] drop-shadow-[0_0_15px_rgba(138,43,226,0.7)] font-cinzel bg-gradient-to-br from-[#8a2be2] to-[#00bfff] bg-clip-text text-transparent relative z-10">C</span>
-        omo el Caballero, un misterioso viajero sin nombre, te adentrarás en las profundidades de este reino olvidado. A medida que explores, descubrirás la trágica historia de Hallownest, sus gobernantes caídos y el destino que aguarda a quienes se atreven a desafiar la maldición que consume el reino. Con cada paso, te enfrentarás a los horrores de la Infección mientras buscas respuestas sobre tu propio origen y propósito en este mundo en ruinas.
+        <span
+          class="first-letter float-left text-6xl md:text-7xl font-bold mr-2 mt-1 mb-[-0.1em] text-[var(--accent-color)] drop-shadow-[0_0_15px_rgba(138,43,226,0.7)] font-cinzel bg-gradient-to-br from-[#8a2be2] to-[#00bfff] bg-clip-text text-transparent relative z-10"
+          >C</span
+        >
+        omo el Caballero, un misterioso viajero sin nombre, te adentrarás en las
+        profundidades de este reino olvidado. A medida que explores, descubrirás
+        la trágica historia de Hallownest, sus gobernantes caídos y el destino que
+        aguarda a quienes se atreven a desafiar la maldición que consume el reino.
+        Con cada paso, te enfrentarás a los horrores de la Infección mientras buscas
+        respuestas sobre tu propio origen y propósito en este mundo en ruinas.
       </p>
     </div>
     <div class="story-image flex justify-center items-center py-8">
-      <img src="/img/shadow.png" alt="Reino de Hallownest" class="w-4/5 max-w-lg mx-auto drop-shadow-xl transition-opacity duration-[3s] opacity-0 hover:drop-shadow-[0_0_30px_rgba(255,255,255,0.6)] cursor-pointer" ref={el => shadowImgEl = el} on:click={openModal} />
+      <img
+        src="/img/shadow.png"
+        alt="Reino de Hallownest"
+        id="shadow-img"
+        class="w-4/5 max-w-lg mx-auto drop-shadow-xl hover:drop-shadow-[0_0_30px_rgba(255,255,255,0.6)] cursor-pointer transition duration-700 ease-in-out"
+      />
     </div>
   </div>
-  <ShadowModal active={modalActive} onClose={closeModal} />
+  <div id="shadow-modal-wrapper">
+  <ShadowModal />
+</div>
   <script is:inline>
-    // Fade-in de la sombra
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        if (shadowImgEl) shadowImgEl.style.opacity = '1';
-      }, 4000);
-    });
-  </script>
+  // Fade-in de la sombra
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      const shadowImgEl = document.getElementById("shadow-img");
+      if (shadowImgEl) shadowImgEl.style.opacity = "1";
+    }, 4000);
+  });
+
+  // Modal mostrar/ocultar
+  document.addEventListener("DOMContentLoaded", function () {
+    const shadowImg = document.getElementById("shadow-img");
+    const modal = document.getElementById("shadow-modal");
+    const closeBtn = document.getElementById("close-shadow-modal");
+    
+    if (shadowImg && modal) {
+      shadowImg.addEventListener("click", () => {
+        modal.classList.add("active", "opacity-100", "pointer-events-auto");
+        modal.classList.remove("opacity-0", "pointer-events-none");
+      });
+    }
+    if (closeBtn && modal) {
+      closeBtn.addEventListener("click", () => {
+        modal.classList.remove("active", "opacity-100", "pointer-events-auto");
+        modal.classList.add("opacity-0", "pointer-events-none");
+      });
+    }
+    // Cerrar al hacer click fuera del modal
+    if (modal) {
+      modal.addEventListener("click", function (e) {
+        if (e.target.id === "shadow-modal") {
+          modal.classList.remove("active", "opacity-100", "pointer-events-auto");
+          modal.classList.add("opacity-0", "pointer-events-none");
+        }
+      });
+    }
+  });
+</script>
 </section>
