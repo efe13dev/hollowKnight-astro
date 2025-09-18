@@ -23,7 +23,7 @@ hollowKnight-astro/
 │   └── styles/         # Global styles (global.css)
 ├── public/             # Publicly accessible files (favicon, images)
 ├── astro.config.mjs    # Astro configuration file
-├── package.json        # NPM dependencies and scripts
+├── package.json        # Project scripts and dependencies (used by Bun)
 ├── tsconfig.json       # TypeScript configuration
 └── biome.json          # Biome (linter/formatter) configuration
 ```
@@ -34,7 +34,7 @@ hollowKnight-astro/
 
 To start the development server with hot reloading:
 ```bash
-npm run dev
+bun run dev
 ```
 This command uses `astro dev`.
 
@@ -42,7 +42,7 @@ This command uses `astro dev`.
 
 To create a production build:
 ```bash
-npm run build
+bun run build
 ```
 This command uses `astro build`.
 
@@ -50,7 +50,7 @@ This command uses `astro build`.
 
 To preview the production build locally:
 ```bash
-npm run preview
+bun run preview
 ```
 This command uses `astro preview`.
 

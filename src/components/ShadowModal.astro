@@ -1,8 +1,8 @@
 ---
 export interface Props {
-  active: boolean;
+  active?: boolean;
 }
-const { active } = Astro.props as Props;
+const { active = false } = Astro.props as Props;
 ---
 
 <div

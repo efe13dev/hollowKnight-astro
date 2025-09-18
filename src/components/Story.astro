@@ -1,11 +1,10 @@
 ---
 import ShadowModal from "./ShadowModal.astro";
-let shadowImgEl: HTMLElement | null = null;
 ---
 
 <section
   id="historia"
-  class="story py-16 px-4 bg-gradient-to-b from-black/80 via-[#18192b] via-70% to-[#18192b] relative overflow-hidden"
+  class="story py-16 px-4 bg-gradient-to-b from-black/80 via-[#18192b] to-[#18192b] relative overflow-hidden"
 >
   <h2
     class="text-center text-3xl md:text-4xl lg:text-5xl font-cinzel font-bold mb-20 uppercase tracking-widest text-white drop-shadow-[0_0_10px_rgba(138,43,226,0.5)] relative inline-block left-1/2 -translate-x-1/2"
@@ -15,11 +14,11 @@ let shadowImgEl: HTMLElement | null = null;
       class="block absolute left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent bottom-[-15px]"
     ></span>
     <span
-      class="block absolute left-1/6 w-4/6 h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent bottom-[-20px] opacity-70"
+      class="block absolute left-[16.666%] w-4/6 h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent bottom-[-20px] opacity-70"
     ></span>
   </h2>
   <div
-    class="story-content max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center relative z-10"
+    class="story-content max-w-6xl mx-auto grid md:grid-cols-2 gap-24 lg:gap-28 items-center relative z-10"
   >
     <div
       class="story-text text-lg leading-relaxed relative p-10 rounded-xl bg-[rgba(20,20,30,0.6)] shadow-xl border border-white/10 backdrop-blur"
@@ -59,44 +58,52 @@ let shadowImgEl: HTMLElement | null = null;
     </div>
   </div>
   <div id="shadow-modal-wrapper">
-  <ShadowModal />
-</div>
+    <ShadowModal />
+  </div>
   <script is:inline>
-  // Fade-in de la sombra
-  window.addEventListener("load", function () {
-    setTimeout(function () {
-      const shadowImgEl = document.getElementById("shadow-img");
-      if (shadowImgEl) shadowImgEl.style.opacity = "1";
-    }, 4000);
-  });
+    // Fade-in de la sombra
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        const shadowImgEl = document.getElementById("shadow-img");
+        if (shadowImgEl) shadowImgEl.style.opacity = "1";
+      }, 4000);
+    });
 
-  // Modal mostrar/ocultar
-  document.addEventListener("DOMContentLoaded", function () {
-    const shadowImg = document.getElementById("shadow-img");
-    const modal = document.getElementById("shadow-modal");
-    const closeBtn = document.getElementById("close-shadow-modal");
-    
-    if (shadowImg && modal) {
-      shadowImg.addEventListener("click", () => {
-        modal.classList.add("active", "opacity-100", "pointer-events-auto");
-        modal.classList.remove("opacity-0", "pointer-events-none");
-      });
-    }
-    if (closeBtn && modal) {
-      closeBtn.addEventListener("click", () => {
-        modal.classList.remove("active", "opacity-100", "pointer-events-auto");
-        modal.classList.add("opacity-0", "pointer-events-none");
-      });
-    }
-    // Cerrar al hacer click fuera del modal
-    if (modal) {
-      modal.addEventListener("click", function (e) {
-        if (e.target.id === "shadow-modal") {
-          modal.classList.remove("active", "opacity-100", "pointer-events-auto");
+    // Modal mostrar/ocultar
+    document.addEventListener("DOMContentLoaded", function () {
+      const shadowImg = document.getElementById("shadow-img");
+      const modal = document.getElementById("shadow-modal");
+      const closeBtn = document.getElementById("close-shadow-modal");
+
+      if (shadowImg && modal) {
+        shadowImg.addEventListener("click", () => {
+          modal.classList.add("active", "opacity-100", "pointer-events-auto");
+          modal.classList.remove("opacity-0", "pointer-events-none");
+        });
+      }
+      if (closeBtn && modal) {
+        closeBtn.addEventListener("click", () => {
+          modal.classList.remove(
+            "active",
+            "opacity-100",
+            "pointer-events-auto",
+          );
           modal.classList.add("opacity-0", "pointer-events-none");
-        }
-      });
-    }
-  });
-</script>
+        });
+      }
+      // Cerrar al hacer click fuera del modal
+      if (modal) {
+        modal.addEventListener("click", function (e) {
+          if (e.target.id === "shadow-modal") {
+            modal.classList.remove(
+              "active",
+              "opacity-100",
+              "pointer-events-auto",
+            );
+            modal.classList.add("opacity-0", "pointer-events-none");
+          }
+        });
+      }
+    });
+  </script>
 </section>
