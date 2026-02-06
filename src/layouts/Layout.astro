@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import SectionTransition from "../components/SectionTransition.astro";
 ---
 <!DOCTYPE html>
 <html lang="es">
@@ -27,6 +28,7 @@ import Header from "../components/Header.astro";
       </svg>
     </button>
     <Header />
+    <SectionTransition />
     <main class="p-0">
       <slot />
     </main>
@@ -39,6 +41,27 @@ import Header from "../components/Header.astro";
           setTimeout(() => { preloader.style.display = 'none'; }, 800);
         }
       });
+      
+      // Scroll Animations Observer
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+      
+      // Observar elementos con animaciones
+      document.addEventListener('DOMContentLoaded', () => {
+        const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+        animatedElements.forEach(el => observer.observe(el));
+      });
+      
       // Botón volver arriba
       const backToTopBtn = document.getElementById('back-to-top');
       window.addEventListener('scroll', () => {
@@ -52,6 +75,56 @@ import Header from "../components/Header.astro";
       });
       backToTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Particle System
+      function createParticle(x, y) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        particle.style.width = Math.random() * 6 + 2 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.background = `rgba(138, 43, 226, ${Math.random() * 0.8 + 0.2})`;
+        particle.style.borderRadius = '50%';
+        particle.style.filter = 'blur(1px)';
+        document.body.appendChild(particle);
+        
+        setTimeout(() => {
+          particle.classList.add('active');
+        }, 10);
+        
+        setTimeout(() => {
+          particle.remove();
+        }, 4000);
+      }
+      
+      // Crear partículas al mover el mouse
+      let particleTimer;
+      document.addEventListener('mousemove', (e) => {
+        clearTimeout(particleTimer);
+        particleTimer = setTimeout(() => {
+          if (Math.random() > 0.9) {
+            createParticle(e.clientX, e.clientY);
+          }
+        }, 50);
+      });
+
+      // Dynamic Background Effect
+      let mouseX = 0;
+      let mouseY = 0;
+      
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX / window.innerWidth - 0.5;
+        mouseY = e.clientY / window.innerHeight - 0.5;
+        
+        const parallaxElements = document.querySelectorAll('.parallax');
+        parallaxElements.forEach(el => {
+          const speed = el.dataset.speed || 0.5;
+          const x = mouseX * speed * 50;
+          const y = mouseY * speed * 50;
+          el.style.transform = `translate(${x}px, ${y}px)`;
+        });
       });
     </script>
   </body>

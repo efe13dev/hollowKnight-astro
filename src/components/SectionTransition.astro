@@ -1,0 +1,55 @@
+---
+// Componente para transiciones suaves entre secciones
+---
+
+<div id="section-transition" class="fixed inset-0 bg-gradient-to-b from-[var(--accent-color)] to-[var(--secondary-color)] opacity-0 pointer-events-none transition-opacity duration-1000 z-[9999] flex items-center justify-center">
+  <div class="text-center">
+    <div class="inline-block">
+      <div class="w-16 h-16 border-4 border-white/30 border-t-transparent border-r-transparent border-b-white border-l-transparent rounded-full animate-spin"></div>
+      <p class="text-white text-xl font-cinzel mt-4 animate-pulse">Cargando...</p>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  function showSectionTransition() {
+    const transition = document.getElementById('section-transition');
+    transition.style.opacity = '1';
+    transition.style.pointerEvents = 'auto';
+  }
+  
+  function hideSectionTransition() {
+    const transition = document.getElementById('section-transition');
+    transition.style.opacity = '0';
+    setTimeout(() => {
+      transition.style.pointerEvents = 'none';
+    }, 1000);
+  }
+  
+  // Auto-hide on load
+  window.addEventListener('load', () => {
+    setTimeout(hideSectionTransition, 500);
+  });
+  
+  // Smooth scroll con transición
+  document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          showSectionTransition();
+          
+          setTimeout(() => {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+            hideSectionTransition();
+          }, 500);
+        }
+      });
+    });
+  });
+</script>

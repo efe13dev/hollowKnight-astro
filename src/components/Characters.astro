@@ -1,68 +1,348 @@
 ---
 // No props de momento
 ---
-<section id="personajes" class="characters py-20 px-4 bg-gradient-to-b from-[#18192b] via-[#15151f] via-70% to-black relative overflow-hidden">
-  <h2 class="text-center text-3xl md:text-4xl font-cinzel font-bold mt-8 mb-12 text-white">Conoce a los Personajes</h2>
-  <div class="character-grid max-w-6xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-    <div class="character-card bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-md border border-[rgba(93,63,211,0.2)] backdrop-blur transition-transform hover:-translate-y-2 hover:shadow-xl">
-      <div class="character-image h-72 overflow-hidden">
-        <img src="/img/67ed144aba13e.webp" alt="El Caballero" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+
+<section
+  id="personajes"
+  class="characters py-20 px-4 bg-gradient-to-b from-[#18192b] via-[#15151f] via-70% to-black relative overflow-hidden"
+>
+  <h2
+    class="text-center text-3xl md:text-4xl font-cinzel font-bold mt-8 mb-12 text-white fade-in glitch"
+    data-text="Conoce a los Personajes"
+  >
+    Conoce a los Personajes
+  </h2>
+
+  <!-- Character Filter -->
+  <div class="flex justify-center gap-4 mb-12 fade-in">
+    <button
+      class="filter-btn px-6 py-2 bg-[var(--accent-color)] text-white rounded-full glow-hover transition-all"
+      data-filter="all">Todos</button
+    >
+    <button
+      class="filter-btn px-6 py-2 bg-[var(--card-bg)] text-white rounded-full border border-[var(--accent-color)] glow-hover transition-all"
+      data-filter="heroes">Héroes</button
+    >
+    <button
+      class="filter-btn px-6 py-2 bg-[var(--card-bg)] text-white rounded-full border border-[var(--accent-color)] glow-hover transition-all"
+      data-filter="allies">Aliados</button
+    >
+    <button
+      class="filter-btn px-6 py-2 bg-[var(--card-bg)] text-white rounded-full border border-[var(--accent-color)] glow-hover transition-all"
+      data-filter="enemies">Enemigos</button
+    >
+  </div>
+
+  <div
+    class="character-grid max-w-6xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+  >
+    <div
+      class="character-card bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-md border border-[rgba(93,63,211,0.2)] backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:shadow-xl fade-in slide-in-left glow-hover"
+      data-character="hero"
+      onclick="selectCharacter(this, 'El Caballero')"
+    >
+      <div class="character-image h-72 overflow-hidden relative">
+        <img
+          src="/img/67ed144aba13e.webp"
+          alt="El Caballero"
+          class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+        />
+        <div
+          class="selected-badge absolute top-2 right-2 bg-[var(--accent-color)] text-white text-xs px-2 py-1 rounded-full opacity-0 transition-opacity"
+        >
+          Seleccionado
+        </div>
       </div>
       <div class="character-info p-6">
         <h3 class="text-xl font-bold mb-2 text-white">El Caballero</h3>
-        <p class="text-white text-sm text-pretty">Un misterioso viajero que desciende a Hallownest en busca de respuestas. Armado con su aguja de uña, debe enfrentarse a los peligros del reino.</p>
+        <p class="text-white text-sm text-pretty">
+          Un misterioso viajero que desciende a Hallownest en busca de
+          respuestas. Armado con su aguja de uña, debe enfrentarse a los
+          peligros del reino.
+        </p>
+        <div class="mt-4 flex gap-2">
+          <span
+            class="text-xs bg-[var(--secondary-color)] text-white px-2 py-1 rounded"
+            >Protagonista</span
+          >
+          <span
+            class="text-xs bg-[var(--accent-color)] text-white px-2 py-1 rounded"
+            >Explorador</span
+          >
+        </div>
       </div>
     </div>
-    
-    <div class="character-card bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-md border border-[rgba(93,63,211,0.2)] backdrop-blur transition-transform hover:-translate-y-2 hover:shadow-xl">
-      <div class="character-image h-72 overflow-hidden">
-        <img src="/img/hornet.webp" alt="Hornet" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+
+    <div
+      class="character-card bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-md border border-[rgba(93,63,211,0.2)] backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:shadow-xl fade-in slide-in-right glow-hover"
+      data-character="ally"
+      onclick="selectCharacter(this, 'Hornet')"
+    >
+      <div class="character-image h-72 overflow-hidden relative">
+        <img
+          src="/img/hornet.webp"
+          alt="Hornet"
+          class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+        />
+        <div
+          class="selected-badge absolute top-2 right-2 bg-[var(--accent-color)] text-white text-xs px-2 py-1 rounded-full opacity-0 transition-opacity"
+        >
+          Seleccionado
+        </div>
       </div>
       <div class="character-info p-6">
         <h3 class="text-xl font-bold mb-2 text-white">Hornet</h3>
-        <p class="text-white text-sm text-pretty">La hija del Rey de los Insectos y guardiana del Crisol. Su aguijón es letal y su técnica de costura es incomparable.</p>
+        <p class="text-white text-sm text-pretty">
+          La hija del Rey de los Insectos y guardiana del Crisol. Su aguijón es
+          letal y su técnica de costura es incomparable.
+        </p>
+        <div class="mt-4 flex gap-2">
+          <span
+            class="text-xs bg-[var(--secondary-color)] text-white px-2 py-1 rounded"
+            >Aliada</span
+          >
+          <span
+            class="text-xs bg-[var(--accent-color)] text-white px-2 py-1 rounded"
+            >Guerrera</span
+          >
+        </div>
       </div>
     </div>
-    
-    <div class="character-card bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-md border border-[rgba(93,63,211,0.2)] backdrop-blur transition-transform hover:-translate-y-2 hover:shadow-xl">
-      <div class="character-image h-72 overflow-hidden">
-        <img src="/img/cloth.webp" alt="Cloth" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+
+    <div
+      class="character-card bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-md border border-[rgba(93,63,211,0.2)] backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:shadow-xl fade-in slide-in-left glow-hover"
+      data-character="ally"
+      onclick="selectCharacter(this, 'Cloth')"
+    >
+      <div class="character-image h-72 overflow-hidden relative">
+        <img
+          src="/img/cloth.webp"
+          alt="Cloth"
+          class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+        />
+        <div
+          class="selected-badge absolute top-2 right-2 bg-[var(--accent-color)] text-white text-xs px-2 py-1 rounded-full opacity-0 transition-opacity"
+        >
+          Seleccionado
+        </div>
       </div>
       <div class="character-info p-6">
         <h3 class="text-xl font-bold mb-2 text-white">Cloth</h3>
-        <p class="text-white text-sm text-pretty">Una figura misteriosa que teje el destino en el taller de su madre. Su presencia es etérea y su conocimiento profundo.</p>
+        <p class="text-white text-sm text-pretty">
+          Una figura misteriosa que teje el destino en el taller de su madre. Su
+          presencia es etérea y su conocimiento profundo.
+        </p>
+        <div class="mt-4 flex gap-2">
+          <span
+            class="text-xs bg-[var(--secondary-color)] text-white px-2 py-1 rounded"
+            >Misteriosa</span
+          >
+          <span
+            class="text-xs bg-[var(--accent-color)] text-white px-2 py-1 rounded"
+            >Tejedora</span
+          >
+        </div>
       </div>
     </div>
-    
-    <div class="character-card bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-md border border-[rgba(93,63,211,0.2)] backdrop-blur transition-transform hover:-translate-y-2 hover:shadow-xl">
-      <div class="character-image h-72 overflow-hidden">
-        <img src="/img/shadow.png" alt="Shadow" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+
+    <div
+      class="character-card bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-md border border-[rgba(93,63,211,0.2)] backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:shadow-xl fade-in slide-in-right glow-hover"
+      data-character="hero"
+      onclick="selectCharacter(this, 'Shadow')"
+    >
+      <div class="character-image h-72 overflow-hidden relative">
+        <img
+          src="/img/shadow.png"
+          alt="Shadow"
+          class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+        />
+        <div
+          class="selected-badge absolute top-2 right-2 bg-[var(--accent-color)] text-white text-xs px-2 py-1 rounded-full opacity-0 transition-opacity"
+        >
+          Seleccionado
+        </div>
       </div>
       <div class="character-info p-6">
         <h3 class="text-xl font-bold mb-2 text-white">Shadow</h3>
-        <p class="text-white text-sm text-pretty">Una sombra del Caballero, nacida de sus sentimientos reprimidos. Es un reflejo de su fuerza y determinación.</p>
+        <p class="text-white text-sm text-pretty">
+          Una sombra del Caballero, nacida de sus sentimientos reprimidos. Es un
+          reflejo de su fuerza y determinación.
+        </p>
+        <div class="mt-4 flex gap-2">
+          <span
+            class="text-xs bg-[var(--secondary-color)] text-white px-2 py-1 rounded"
+            >Reflejo</span
+          >
+          <span
+            class="text-xs bg-[var(--accent-color)] text-white px-2 py-1 rounded"
+            >Sombrío</span
+          >
+        </div>
       </div>
     </div>
-    
-    <div class="character-card bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-md border border-[rgba(93,63,211,0.2)] backdrop-blur transition-transform hover:-translate-y-2 hover:shadow-xl">
-      <div class="character-image h-72 overflow-hidden">
-        <img src="/img/7XWcd2Kg44o1IzyY1L7czyyS.webp" alt="Zote" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+
+    <div
+      class="character-card bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-md border border-[rgba(93,63,211,0.2)] backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:shadow-xl fade-in slide-in-left glow-hover"
+      data-character="enemy"
+      onclick="selectCharacter(this, 'Zote')"
+    >
+      <div class="character-image h-72 overflow-hidden relative">
+        <img
+          src="/img/7XWcd2Kg44o1IzyY1L7czyyS.webp"
+          alt="Zote"
+          class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+        />
+        <div
+          class="selected-badge absolute top-2 right-2 bg-[var(--accent-color)] text-white text-xs px-2 py-1 rounded-full opacity-0 transition-opacity"
+        >
+          Seleccionado
+        </div>
       </div>
       <div class="character-info p-6">
         <h3 class="text-xl font-bold mb-2 text-white">Zote</h3>
-        <p class="text-white text-sm text-pretty">Un caballero presumido y algo inútil que se cree el mejor del reino. Su espada de juguete es más decorativa que funcional.</p>
+        <p class="text-white text-sm text-pretty">
+          Un caballero presumido y algo inútil que se cree el mejor del reino.
+          Su espada de juguete es más decorativa que funcional.
+        </p>
+        <div class="mt-4 flex gap-2">
+          <span
+            class="text-xs bg-[var(--secondary-color)] text-white px-2 py-1 rounded"
+            >Rival</span
+          >
+          <span
+            class="text-xs bg-[var(--accent-color)] text-white px-2 py-1 rounded"
+            >Caballero</span
+          >
+        </div>
       </div>
     </div>
-    
-    <div class="character-card bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-md border border-[rgba(93,63,211,0.2)] backdrop-blur transition-transform hover:-translate-y-2 hover:shadow-xl">
-      <div class="character-image h-72 overflow-hidden">
-        <img src="/img/202310192349115_5.webp" alt="Quirrel" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+
+    <div
+      class="character-card bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-md border border-[rgba(93,63,211,0.2)] backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:shadow-xl fade-in slide-in-right glow-hover"
+      data-character="ally"
+      onclick="selectCharacter(this, 'Quirrel')"
+    >
+      <div class="character-image h-72 overflow-hidden relative">
+        <img
+          src="/img/202310192349115_5.webp"
+          alt="Quirrel"
+          class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+        />
+        <div
+          class="selected-badge absolute top-2 right-2 bg-[var(--accent-color)] text-white text-xs px-2 py-1 rounded-full opacity-0 transition-opacity"
+        >
+          Seleccionado
+        </div>
       </div>
       <div class="character-info p-6">
         <h3 class="text-xl font-bold mb-2 text-white">Quirrel</h3>
-        <p class="text-white text-sm text-pretty">Un arqueólogo excéntrico obsesionado con descubrir los secretos de Hallownest. Viaja con su inseparable mochila.</p>
+        <p class="text-white text-sm text-pretty">
+          Un arqueólogo excéntrico obsesionado con descubrir los secretos de
+          Hallownest. Viaja con su inseparable mochila.
+        </p>
+        <div class="mt-4 flex gap-2">
+          <span
+            class="text-xs bg-[var(--secondary-color)] text-white px-2 py-1 rounded"
+            >Explorador</span
+          >
+          <span
+            class="text-xs bg-[var(--accent-color)] text-white px-2 py-1 rounded"
+            >Sabio</span
+          >
+        </div>
       </div>
     </div>
-    <!-- Puedes añadir más personajes aquí -->
+  </div>
+
+  <!-- Selected Character Display -->
+  <div
+    id="selected-character"
+    class="fixed bottom-4 left-4 bg-[var(--card-bg)] border border-[var(--accent-color)] rounded-lg p-4 shadow-xl opacity-0 pointer-events-none transition-all duration-300 z-50"
+  >
+    <p class="text-white font-bold">
+      Personaje seleccionado: <span
+        id="character-name"
+        class="text-[var(--accent-color)]"></span>
+    </p>
   </div>
 </section>
+
+<script is:inline>
+  let selectedCharacter = null;
+
+  function selectCharacter(card, characterName) {
+    // Remove previous selection
+    document.querySelectorAll(".character-card").forEach((c) => {
+      c.classList.remove("ring-2", "ring-[var(--accent-color)]");
+      const badge = c.querySelector(".selected-badge");
+      if (badge) badge.style.opacity = "0";
+    });
+
+    // Add selection to current card
+    card.classList.add("ring-2", "ring-[var(--accent-color)]");
+    const badge = card.querySelector(".selected-badge");
+    if (badge) badge.style.opacity = "1";
+
+    // Update selected character display
+    selectedCharacter = characterName;
+    const display = document.getElementById("selected-character");
+    const nameSpan = document.getElementById("character-name");
+
+    nameSpan.textContent = characterName;
+    display.style.opacity = "1";
+    display.style.pointerEvents = "auto";
+
+    // Add celebration particles
+    for (let i = 0; i < 10; i++) {
+      setTimeout(() => {
+        const rect = card.getBoundingClientRect();
+        createParticle(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      }, i * 50);
+    }
+  }
+
+  // Filter functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const characterCards = document.querySelectorAll(".character-card");
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.dataset.filter;
+
+        // Update button styles
+        filterBtns.forEach((b) => {
+          b.classList.remove("bg-[var(--accent-color)]");
+          b.classList.add(
+            "bg-[var(--card-bg)]",
+            "border",
+            "border-[var(--accent-color)]",
+          );
+        });
+        btn.classList.remove(
+          "bg-[var(--card-bg)]",
+          "border",
+          "border-[var(--accent-color)]",
+        );
+        btn.classList.add("bg-[var(--accent-color)]");
+
+        // Filter cards
+        characterCards.forEach((card) => {
+          if (
+            filter === "all" ||
+            card.dataset.character === filter ||
+            (filter === "heroes" && card.dataset.character === "hero") ||
+            (filter === "allies" && card.dataset.character === "ally") ||
+            (filter === "enemies" && card.dataset.character === "enemy")
+          ) {
+            card.style.display = "block";
+            setTimeout(() => (card.style.opacity = "1"), 100);
+          } else {
+            card.style.opacity = "0";
+            setTimeout(() => (card.style.display = "none"), 300);
+          }
+        });
+      });
+    });
+  });
+</script>
