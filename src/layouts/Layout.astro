@@ -2,7 +2,8 @@
 import Header from "../components/Header.astro";
 import SectionTransition from "../components/SectionTransition.astro";
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -11,20 +12,59 @@ import SectionTransition from "../components/SectionTransition.astro";
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <meta name="generator" content={Astro.generator} />
   </head>
-  <body class="bg-[var(--background-dark)] text-[var(--text-primary)] font-inter relative">
+  <body class="bg-[var(--background-dark)] text-[var(--text-primary)] relative">
     <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 bg-[var(--background-dark)] flex flex-col items-center justify-center z-[3000] transition-opacity duration-700">
-      <img src="/img/hollow-knight-Logo.png" alt="Cargando" class="w-24 animate-bounce mb-6 opacity-90" />
-      <div class="loader-bar w-32 h-2 bg-gradient-to-r from-[var(--accent-color)] to-[var(--secondary-color)] rounded-full animate-pulse"></div>
-      <span class="mt-6 text-white/80 text-lg tracking-wider">Cargando Hallownest...</span>
+    <div
+      id="preloader"
+      class="fixed inset-0 flex flex-col items-center justify-center z-[3000] transition-opacity duration-700"
+      style="background: var(--background-dark);"
+    >
+      <img
+        src="/img/hollow-knight-Logo.png"
+        alt="Cargando"
+        class="w-20 mb-8 opacity-80"
+        style="animation: pulse 2s ease-in-out infinite;"
+      />
+      <div
+        class="w-24 h-px overflow-hidden rounded-full"
+        style="background: rgba(155,109,255,0.15);"
+      >
+        <div
+          class="h-full rounded-full animate-pulse"
+          style="background: linear-gradient(90deg, var(--accent-color), var(--tertiary-color)); width: 60%;"
+        >
+        </div>
+      </div>
+      <span
+        class="mt-6 text-white/40 text-xs font-mono tracking-[0.3em] uppercase"
+        >Cargando...</span
+      >
     </div>
     <!-- Botón Volver Arriba -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 z-[2000] bg-[var(--accent-color)] text-white rounded-full p-3 shadow-lg opacity-0 pointer-events-none transition-all duration-500 hover:bg-[var(--secondary-color)] hover:scale-110" aria-label="Volver arriba">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 z-[2000] text-white/70 hover:text-white p-3 opacity-0 pointer-events-none transition-all duration-500 hover:-translate-y-1 rounded-sm backdrop-blur-sm"
+      style="background: rgba(155,109,255,0.15); border: 1px solid rgba(155,109,255,0.2);"
+      aria-label="Volver arriba"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-4 h-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 15l7-7 7 7"></path>
       </svg>
     </button>
     <Header />
@@ -34,74 +74,78 @@ import SectionTransition from "../components/SectionTransition.astro";
     </main>
     <script is:inline>
       // Preloader
-      window.addEventListener('load', function() {
-        const preloader = document.getElementById('preloader');
+      window.addEventListener("load", function () {
+        const preloader = document.getElementById("preloader");
         if (preloader) {
-          preloader.style.opacity = '0';
-          setTimeout(() => { preloader.style.display = 'none'; }, 800);
+          preloader.style.opacity = "0";
+          setTimeout(() => {
+            preloader.style.display = "none";
+          }, 800);
         }
       });
-      
+
       // Scroll Animations Observer
       const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: "0px 0px -50px 0px",
       };
-      
+
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add("visible");
           }
         });
       }, observerOptions);
-      
+
       // Observar elementos con animaciones
-      document.addEventListener('DOMContentLoaded', () => {
-        const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
-        animatedElements.forEach(el => observer.observe(el));
+      document.addEventListener("DOMContentLoaded", () => {
+        const animatedElements = document.querySelectorAll(
+          ".fade-in, .slide-in-left, .slide-in-right",
+        );
+        animatedElements.forEach((el) => observer.observe(el));
       });
-      
+
       // Botón volver arriba
-      const backToTopBtn = document.getElementById('back-to-top');
-      window.addEventListener('scroll', () => {
+      const backToTopBtn = document.getElementById("back-to-top");
+      window.addEventListener("scroll", () => {
         if (window.scrollY > 300) {
-          backToTopBtn.style.opacity = '1';
-          backToTopBtn.style.pointerEvents = 'auto';
+          backToTopBtn.style.opacity = "1";
+          backToTopBtn.style.pointerEvents = "auto";
         } else {
-          backToTopBtn.style.opacity = '0';
-          backToTopBtn.style.pointerEvents = 'none';
+          backToTopBtn.style.opacity = "0";
+          backToTopBtn.style.pointerEvents = "none";
         }
       });
-      backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
       // Particle System
       function createParticle(x, y) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = x + 'px';
-        particle.style.top = y + 'px';
-        particle.style.width = Math.random() * 6 + 2 + 'px';
+        const particle = document.createElement("div");
+        particle.className = "particle";
+        particle.style.left = x + "px";
+        particle.style.top = y + "px";
+        particle.style.width = Math.random() * 6 + 2 + "px";
         particle.style.height = particle.style.width;
         particle.style.background = `rgba(138, 43, 226, ${Math.random() * 0.8 + 0.2})`;
-        particle.style.borderRadius = '50%';
-        particle.style.filter = 'blur(1px)';
+        particle.style.borderRadius = "50%";
+        particle.style.filter = "blur(1px)";
         document.body.appendChild(particle);
-        
+
         setTimeout(() => {
-          particle.classList.add('active');
+          particle.classList.add("active");
         }, 10);
-        
+
         setTimeout(() => {
           particle.remove();
         }, 4000);
       }
-      
+
       // Crear partículas al mover el mouse
       let particleTimer;
-      document.addEventListener('mousemove', (e) => {
+      document.addEventListener("mousemove", (e) => {
         clearTimeout(particleTimer);
         particleTimer = setTimeout(() => {
           if (Math.random() > 0.9) {
@@ -113,13 +157,13 @@ import SectionTransition from "../components/SectionTransition.astro";
       // Dynamic Background Effect
       let mouseX = 0;
       let mouseY = 0;
-      
-      document.addEventListener('mousemove', (e) => {
+
+      document.addEventListener("mousemove", (e) => {
         mouseX = e.clientX / window.innerWidth - 0.5;
         mouseY = e.clientY / window.innerHeight - 0.5;
-        
-        const parallaxElements = document.querySelectorAll('.parallax');
-        parallaxElements.forEach(el => {
+
+        const parallaxElements = document.querySelectorAll(".parallax");
+        parallaxElements.forEach((el) => {
           const speed = el.dataset.speed || 0.5;
           const x = mouseX * speed * 50;
           const y = mouseY * speed * 50;
