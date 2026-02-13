@@ -73,12 +73,11 @@
         class="btn bg-gradient-to-r from-[var(--secondary-color)] to-[var(--accent-color)] text-white shadow-lg glow-hover font-cinzel text-sm tracking-wider uppercase"
         style="box-shadow: 0 4px 20px rgba(155,109,255,0.3);">Ver Tráiler</a
       >
-      <button
+      <a
+        href="#personajes"
         class="btn border border-white/20 text-white/90 hover:border-[var(--accent-color)] hover:text-white hover:bg-white/5 transition-all duration-300 font-cinzel text-sm tracking-wider uppercase backdrop-blur-sm"
-        onclick="window.location.href='#personajes'"
+        >Explorar Personajes</a
       >
-        Explorar Personajes
-      </button>
     </div>
   </div>
   <div
@@ -88,9 +87,9 @@
     <img
       src="/img/caballerito.png"
       alt="El Caballero en Hallownest"
+      id="hero-knight-image"
       class="brightness-90 float-animation cursor-pointer hover:scale-110 transition-transform duration-500"
       style="filter: drop-shadow(0 0 30px rgba(155,109,255,0.3));"
-      onclick="this.classList.add('jump-animation'); setTimeout(() => this.classList.remove('jump-animation'), 500)"
     />
   </div>
 </section>

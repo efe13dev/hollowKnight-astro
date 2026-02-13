@@ -337,3 +337,21 @@ body::before {
 		75% { transform: translate(-100px, 50px) scale(1.1); opacity: 0.4; }
 	}
 }
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation: none !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+
+	.fade-in,
+	.slide-in-left,
+	.slide-in-right,
+	.section-fade-in {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+}

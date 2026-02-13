@@ -42,110 +42,23 @@
         <a
           href="#inicio"
           class="relative font-cinzel text-xs tracking-[0.2em] uppercase py-2 text-white/70 hover:text-white transition-colors duration-300"
-          style="letter-spacing: 0.15em;">Inicio</a>
+          style="letter-spacing: 0.15em;">Inicio</a
+        >
       </li>
       <li>
         <a
           href="#historia"
           class="relative font-cinzel text-xs tracking-[0.2em] uppercase py-2 text-white/70 hover:text-white transition-colors duration-300"
-          style="letter-spacing: 0.15em;">Historia</a>
+          style="letter-spacing: 0.15em;">Historia</a
+        >
       </li>
       <li>
         <a
           href="#personajes"
           class="relative font-cinzel text-xs tracking-[0.2em] uppercase py-2 text-white/70 hover:text-white transition-colors duration-300"
-          style="letter-spacing: 0.15em;">Personajes</a>
+          style="letter-spacing: 0.15em;">Personajes</a
+        >
       </li>
     </ul>
   </div>
-  <script is:inline>
-    // Menú móvil y animación Cloth
-    const menuBtn = document.querySelector(".menu-btn");
-    const navMenu = document.querySelector(".nav-menu");
-    const navLinks = document.querySelectorAll(".nav-menu a");
-    const clothImage = document.getElementById("cloth-image");
-    const header = document.querySelector(".header");
-    let lastScroll = 0;
-
-    function toggleMobileMenu() {
-      menuBtn.classList.toggle("active");
-      navMenu.classList.toggle("active");
-      document.body.classList.toggle("no-scroll");
-      if (navMenu.classList.contains("active")) {
-        navMenu.style.right = "0";
-      } else {
-        navMenu.style.right = "-100%";
-      }
-    }
-
-    if (menuBtn && navMenu) {
-      menuBtn.addEventListener("click", toggleMobileMenu);
-    }
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        if (navMenu.classList.contains("active")) {
-          toggleMobileMenu();
-        }
-      });
-    });
-    // Smooth scroll para anclas
-    navLinks.forEach((link) => {
-      link.addEventListener("click", function (e) {
-        if (this.getAttribute("href").startsWith("#")) {
-          e.preventDefault();
-          const targetId = this.getAttribute("href");
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 60,
-              behavior: "smooth",
-            });
-          }
-        }
-      });
-    });
-    // Animación de Cloth
-    if (clothImage) {
-      clothImage.addEventListener("click", function () {
-        this.classList.add("jump-animation");
-        this.addEventListener(
-          "animationend",
-          function () {
-            this.classList.remove("jump-animation");
-          },
-          { once: true },
-        );
-      });
-    }
-    // Mostrar/ocultar header al hacer scroll
-    window.addEventListener("scroll", () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll <= 0) {
-        header.classList.remove("scroll-up");
-        return;
-      }
-      if (
-        currentScroll > lastScroll &&
-        !header.classList.contains("scroll-down")
-      ) {
-        header.classList.remove("scroll-up");
-        header.classList.add("scroll-down");
-      } else if (
-        currentScroll < lastScroll &&
-        header.classList.contains("scroll-down")
-      ) {
-        header.classList.remove("scroll-down");
-        header.classList.add("scroll-up");
-      }
-      // Sombra dinámica
-      if (currentScroll > 50) {
-        header.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.3)";
-        header.style.background = "rgba(10, 10, 20, 0.95)";
-      } else {
-        header.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.3)";
-        header.style.background = "rgba(10, 10, 20, 0.9)";
-      }
-      lastScroll = currentScroll;
-    });
-  </script>
 </nav>

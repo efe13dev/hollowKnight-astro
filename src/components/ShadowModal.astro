@@ -9,7 +9,6 @@ const { active = false } = Astro.props as Props;
   id="shadow-modal"
   class={`modal fixed inset-0 z-[2000] flex items-center justify-center bg-[rgba(10,10,20,0.85)] transition-opacity duration-700 ${active ? "active opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
 >
-
   <div
     class="modal-content bg-[var(--background-light)] rounded-2xl max-w-md w-full p-10 relative shadow-2xl text-white opacity-100 transform-none filter-none transition-all"
   >
@@ -39,16 +38,3 @@ const { active = false } = Astro.props as Props;
     </p>
   </div>
 </div>
-
-<script>
-  // Cierra el modal cuando se hace click fuera del contenido o en la X
-  document.getElementById('shadow-modal')?.addEventListener('click', function(e) {
-    const target = e.target as HTMLElement | null;
-    if (target && target.id === 'shadow-modal') {
-      window.dispatchEvent(new CustomEvent('closeShadowModal'));
-    }
-  });
-  document.getElementById('close-shadow-modal')?.addEventListener('click', function() {
-    window.dispatchEvent(new CustomEvent('closeShadowModal'));
-  });
-</script>
