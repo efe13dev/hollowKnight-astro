@@ -7,10 +7,10 @@ const { active = false } = Astro.props as Props;
 
 <div
   id="shadow-modal"
-  class={`modal fixed inset-0 z-[2000] flex items-center justify-center bg-[rgba(10,10,20,0.85)] transition-opacity duration-700 ${active ? "active opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+  class={`modal fixed inset-0 z-[2000] flex items-center justify-center bg-[rgba(10,10,20,0.6)] backdrop-blur-md transition-opacity duration-700 ${active ? "active opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
 >
   <div
-    class="modal-content bg-[var(--background-light)] rounded-2xl max-w-md w-full p-10 relative shadow-2xl text-white opacity-100 transform-none filter-none transition-all"
+    class="modal-content glass-panel rounded-2xl max-w-md w-full p-10 relative shadow-2xl text-white opacity-100 transform-none filter-none transition-all"
   >
     <span
       id="close-shadow-modal"

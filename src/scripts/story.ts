@@ -69,13 +69,13 @@ function renderEraContent(era: string): void {
 
   window.setTimeout(() => {
     container.innerHTML = `
-      <div class="story-text text-lg leading-relaxed relative p-10 rounded-xl bg-[rgba(20,20,30,0.6)] shadow-xl border border-white/10 backdrop-blur-sm" style="opacity:1;transform:none;">
+      <div class="story-text text-lg leading-relaxed relative p-10 rounded-xl glass-panel group" style="opacity:1;transform:none;">
         <h3 class="text-2xl font-bold mb-6 font-cinzel" style="color:var(--accent-color);">${content.title}</h3>
-        <p class="mb-8 pl-2 text-pretty" style="color:rgba(255,255,255,0.9);">
+        <p class="mb-8 pl-2 text-white/90 text-pretty relative transition-all duration-500 group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(155,109,255,0.6)]">
           <span style="float:left;font-size:3.5rem;font-weight:700;margin-right:0.5rem;margin-top:0.25rem;margin-bottom:-0.1em;background:linear-gradient(135deg,#8a2be2,#00bfff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Cinzel',serif;position:relative;z-index:10;filter:drop-shadow(0 0 15px rgba(138,43,226,0.7));">${content.text1first}</span>
           ${content.text1}
         </p>
-        <p class="pl-2 text-pretty" style="color:rgba(255,255,255,0.9);">
+        <p class="pl-2 text-white/90 text-pretty relative transition-all duration-500 group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(0,200,255,0.6)]">
           <span style="float:left;font-size:3.5rem;font-weight:700;margin-right:0.5rem;margin-top:0.25rem;margin-bottom:-0.1em;background:linear-gradient(135deg,#8a2be2,#00bfff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Cinzel',serif;position:relative;z-index:10;filter:drop-shadow(0 0 15px rgba(138,43,226,0.7));">${content.text2first}</span>
           ${content.text2}
         </p>
