@@ -75,13 +75,19 @@
     class="hero-image absolute right-[5%] bottom-[8%] max-w-[18%] drop-shadow-lg hidden md:block parallax"
     data-speed="0.8"
   >
-    <img
-      src="/img/caballerito.png"
-      alt="El Caballero en Hallownest"
-      id="hero-knight-image"
-      class="brightness-90 float-animation cursor-pointer hover:scale-110 transition-transform duration-500"
-      style="filter: drop-shadow(0 0 30px rgba(155,109,255,0.3));"
-    />
+    <div
+      class="knight-hover-wrap relative inline-block float-animation cursor-pointer transition-transform duration-500 hover:scale-110"
+    >
+      <img
+        src="/img/caballerito.png"
+        alt="El Caballero en Hallownest"
+        id="hero-knight-image"
+        class="brightness-90"
+        style="filter: drop-shadow(0 0 30px rgba(155,109,255,0.3));"
+      />
+      <span class="knight-eye knight-eye-left"></span>
+      <span class="knight-eye knight-eye-right"></span>
+    </div>
   </div>
 </section>
 
