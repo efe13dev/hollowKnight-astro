@@ -7,50 +7,74 @@
   class="hero min-h-screen pt-20 pb-16 flex items-center relative overflow-hidden"
   style="background-image: url('/img/202310192349115_5.jpg.webp'); background-size: cover; background-position: center;"
 >
-  <!-- Dark overlay -->
-  <div class="absolute inset-0 bg-black/70"></div>
-  <!-- Floating Orbs Background -->
-  <div class="floating-orb w-32 h-32 top-10 left-10"></div>
+  <!-- Layered atmospheric overlays -->
   <div
-    class="floating-orb w-24 h-24 top-1/3 right-20"
-    style="animation-delay: -5s;"
+    class="absolute inset-0 bg-gradient-to-b from-black/80 via-[#060610]/70 to-[#060610]"
   >
   </div>
   <div
-    class="floating-orb w-40 h-40 bottom-20 left-1/4"
-    style="animation-delay: -10s;"
+    class="absolute inset-0 bg-gradient-to-r from-[#060610]/90 via-transparent to-transparent"
+  >
+  </div>
+
+  <!-- Floating Orbs Background -->
+  <div class="floating-orb w-48 h-48 -top-10 -left-10" style="opacity: 0.15;">
+  </div>
+  <div
+    class="floating-orb w-32 h-32 top-1/4 right-[15%]"
+    style="animation-delay: -5s; opacity: 0.1;"
+  >
+  </div>
+  <div
+    class="floating-orb w-64 h-64 -bottom-20 left-1/3"
+    style="animation-delay: -10s; opacity: 0.08;"
   >
   </div>
 
   <!-- Parallax Background Layer -->
   <div
-    class="parallax absolute inset-0 opacity-30"
+    class="parallax absolute inset-0 opacity-20"
     data-speed="0.3"
-    style="background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(138, 43, 226, 0.3) 0%, transparent 50%);"
+    style="background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--glow-purple) 0%, transparent 50%);"
   >
   </div>
 
-  <div class="max-w-xl z-10 text-left pl-6 fade-in">
-    <h1
-      class="text-4xl md:text-5xl lg:text-6xl font-cinzel font-bold mb-6 text-white drop-shadow-lg glitch"
-      data-text="Descubre el Reino de Hallownest"
+  <!-- Decorative vertical line -->
+  <div
+    class="absolute left-[8%] top-[15%] bottom-[15%] w-px bg-gradient-to-b from-transparent via-[var(--accent-color)]/30 to-transparent hidden lg:block"
+  >
+  </div>
+
+  <div class="max-w-2xl z-10 text-left pl-8 md:pl-16 lg:pl-24 fade-in">
+    <span
+      class="inline-block text-[var(--tertiary-color)] font-mono text-xs tracking-[0.3em] uppercase mb-4 opacity-70"
+      >// Bienvenido a las profundidades</span
     >
-      Descubre el Reino de Hallownest
+    <h1
+      class="text-4xl md:text-5xl lg:text-7xl font-cinzel font-bold mb-6 text-white leading-[1.1] tracking-tight"
+      style="text-shadow: 0 0 40px rgba(155,109,255,0.3), 0 2px 10px rgba(0,0,0,0.8);"
+    >
+      Descubre el Reino de <span
+        class="bg-gradient-to-r from-[var(--accent-color)] via-[var(--tertiary-color)] to-[var(--accent-color)] bg-clip-text text-transparent"
+        >Hallownest</span
+      >
     </h1>
-    <p class="text-lg md:text-xl text-white/90 mb-8 max-w-[90%] slide-in-left">
+    <p
+      class="text-lg md:text-xl text-white/80 mb-10 max-w-[85%] slide-in-left font-body leading-relaxed"
+    >
       Un mundo de maravillas y peligros te espera bajo la superficie. Explora
       cavernas antiguas, lucha contra criaturas feroces y descubre secretos
       olvidados en esta aventura de acción y plataformas.
     </p>
-    <div class="flex gap-4 mt-8 slide-in-right">
+    <div class="flex flex-wrap gap-4 mt-8 slide-in-right">
       <a
         href="https://www.youtube.com/watch?v=UAO2urG23S4"
         target="_blank"
-        class="btn btn-primary bg-gradient-to-r from-[var(--secondary-color)] to-[var(--accent-color)] text-white shadow-lg glow-hover hover:-translate-y-1 transition-transform"
-        >Ver Tráiler</a
+        class="btn bg-gradient-to-r from-[var(--secondary-color)] to-[var(--accent-color)] text-white shadow-lg glow-hover font-cinzel text-sm tracking-wider uppercase"
+        style="box-shadow: 0 4px 20px rgba(155,109,255,0.3);">Ver Tráiler</a
       >
       <button
-        class="btn btn-secondary border-2 border-[var(--secondary-color)] text-white hover:bg-[var(--secondary-color)] hover:text-white transition-colors glow-hover"
+        class="btn border border-white/20 text-white/90 hover:border-[var(--accent-color)] hover:text-white hover:bg-white/5 transition-all duration-300 font-cinzel text-sm tracking-wider uppercase backdrop-blur-sm"
         onclick="window.location.href='#personajes'"
       >
         Explorar Personajes
@@ -58,13 +82,14 @@
     </div>
   </div>
   <div
-    class="hero-image absolute right-[5%] bottom-[5%] max-w-[15%] animate-[float_6s_ease-in-out_infinite] drop-shadow-lg hidden md:block parallax"
+    class="hero-image absolute right-[5%] bottom-[8%] max-w-[18%] drop-shadow-lg hidden md:block parallax"
     data-speed="0.8"
   >
     <img
       src="/img/caballerito.png"
       alt="El Caballero en Hallownest"
-      class="brightness-90 float-animation cursor-pointer hover:scale-110 transition-transform"
+      class="brightness-90 float-animation cursor-pointer hover:scale-110 transition-transform duration-500"
+      style="filter: drop-shadow(0 0 30px rgba(155,109,255,0.3));"
       onclick="this.classList.add('jump-animation'); setTimeout(() => this.classList.remove('jump-animation'), 500)"
     />
   </div>

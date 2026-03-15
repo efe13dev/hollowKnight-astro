@@ -6,63 +6,90 @@ import ShadowModal from "./ShadowModal.astro";
   id="historia"
   class="story py-16 px-4 bg-gradient-to-b from-black/80 via-[#18192b] to-[#18192b] relative overflow-hidden"
 >
+  <!-- Section Title -->
+  <div class="text-center mb-16 fade-in">
+    <span
+      class="inline-block text-[var(--tertiary-color)] font-mono text-xs tracking-[0.3em] uppercase mb-3 opacity-60"
+      >// Cronología</span
+    >
+    <h2
+      class="text-3xl md:text-4xl lg:text-5xl font-cinzel font-bold uppercase tracking-widest text-white relative inline-block"
+      style="text-shadow: 0 0 30px rgba(155,109,255,0.3);"
+    >
+      La Leyenda de Hallownest
+      <span
+        class="block absolute left-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent bottom-[-12px]"
+      ></span>
+    </h2>
+  </div>
+
   <!-- Interactive Timeline -->
-  <div class="timeline-container max-w-4xl mx-auto mb-16 fade-in">
-    <div class="timeline flex justify-between items-center relative">
+  <div class="timeline-container max-w-3xl mx-auto mb-20 fade-in px-8">
+    <div class="timeline flex justify-between items-center relative py-4">
       <div
-        class="timeline-line absolute h-1 bg-gradient-to-r from-[var(--secondary-color)] to-[var(--accent-color)] top-1/2 -translate-y-1/2 w-full"
+        class="absolute h-px top-1/2 -translate-y-1/2 left-0 right-0"
+        style="background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), var(--tertiary-color));"
       >
       </div>
 
       <div
-        class="timeline-point relative z-10 cursor-pointer glow-hover"
+        class="timeline-point relative z-10 cursor-pointer group"
         data-era="past"
         onclick="showEraContent('past', event)"
       >
         <div
-          class="w-4 h-4 bg-[var(--accent-color)] rounded-full border-4 border-[var(--card-bg)] shadow-lg"
+          data-dot
+          class="w-5 h-5 rounded-full transition-all duration-400 group-hover:scale-150"
+          style="background: var(--accent-color); box-shadow: 0 0 10px rgba(155,109,255,0.4);"
         >
         </div>
         <div
-          class="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap"
+          class="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap"
         >
-          <span class="text-xs text-white bg-[var(--card-bg)] px-2 py-1 rounded"
+          <span
+            class="text-xs font-cinzel text-white/70 tracking-widest uppercase group-hover:text-white transition-colors"
             >Pasado</span
           >
         </div>
       </div>
 
       <div
-        class="timeline-point relative z-10 cursor-pointer glow-hover"
+        class="timeline-point relative z-10 cursor-pointer group"
         data-era="present"
         onclick="showEraContent('present', event)"
       >
         <div
-          class="w-4 h-4 bg-[var(--secondary-color)] rounded-full border-4 border-[var(--card-bg)] shadow-lg"
+          data-dot
+          class="w-5 h-5 rounded-full transition-all duration-400 group-hover:scale-150"
+          style="background: var(--secondary-color); box-shadow: 0 0 10px rgba(93,63,211,0.4);"
         >
         </div>
         <div
-          class="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap"
+          class="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap"
         >
-          <span class="text-xs text-white bg-[var(--card-bg)] px-2 py-1 rounded"
+          <span
+            class="text-xs font-cinzel text-white/70 tracking-widest uppercase group-hover:text-white transition-colors"
             >Presente</span
           >
         </div>
       </div>
 
       <div
-        class="timeline-point relative z-10 cursor-pointer glow-hover"
+        class="timeline-point relative z-10 cursor-pointer group"
         data-era="future"
         onclick="showEraContent('future', event)"
       >
         <div
-          class="w-4 h-4 bg-[var(--accent-color)] rounded-full border-4 border-[var(--card-bg)] shadow-lg"
+          data-dot
+          class="w-5 h-5 rounded-full transition-all duration-400 group-hover:scale-150"
+          style="background: var(--tertiary-color); box-shadow: 0 0 10px rgba(0,200,255,0.4);"
         >
         </div>
         <div
-          class="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap"
+          class="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap"
         >
-          <span class="text-xs text-white bg-[var(--card-bg)] px-2 py-1 rounded"
+          <span
+            class="text-xs font-cinzel text-white/70 tracking-widest uppercase group-hover:text-white transition-colors"
             >Futuro</span
           >
         </div>
@@ -70,22 +97,10 @@ import ShadowModal from "./ShadowModal.astro";
     </div>
   </div>
 
-  <h2
-    class="text-center text-3xl md:text-4xl lg:text-5xl font-cinzel font-bold mb-20 uppercase tracking-widest text-white drop-shadow-[0_0_10px_rgba(138,43,226,0.5)] relative inline-block left-1/2 -translate-x-1/2 fade-in glitch"
-    data-text="La Leyenda de Hallownest"
-  >
-    La Leyenda de Hallownest
-    <span
-      class="block absolute left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent bottom-[-15px]"
-    ></span>
-    <span
-      class="block absolute left-[16.666%] w-4/6 h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent bottom-[-20px] opacity-70"
-    ></span>
-  </h2>
-
   <div
     id="era-content"
     class="story-content max-w-6xl mx-auto grid md:grid-cols-2 gap-24 lg:gap-28 items-center relative z-10"
+    style="transition: opacity 0.35s ease, transform 0.35s ease;"
   >
     <div
       class="story-text text-lg leading-relaxed relative p-10 rounded-xl bg-[rgba(20,20,30,0.6)] shadow-xl border border-white/10 backdrop-blur fade-in slide-in-left"
@@ -136,26 +151,32 @@ import ShadowModal from "./ShadowModal.astro";
     const eraContent = {
       past: {
         title: "El Origen de la Plaga",
+        text1first: "H",
         text1:
-          "Hace mucho tiempo, Hallownest era un próspero reino bajo el sabio gobierno del Rey Pálido y la Reina Herrah. Los insectos vivían en armonía, construyendo ciudades magníficas y desarrollando una cultura rica.",
+          "ace mucho tiempo, Hallownest era un próspero reino bajo el sabio gobierno del Rey Pálido y la Reina Herrah. Los insectos vivían en armonía, construyendo ciudades magníficas y desarrollando una cultura rica.",
+        text2first: "P",
         text2:
-          "Pero algo cambió. Una fuerza extraña y corruptora comenzó a extenderse por las profundidades. Los sabios la llamaron 'La Radiancia' - una luz cegadora que prometía unidad pero traía locura.",
+          "ero algo cambió. Una fuerza extraña y corruptora comenzó a extenderse por las profundidades. Los sabios la llamaron 'La Radiancia' — una luz cegadora que prometía unidad pero traía locura.",
         image: "/img/202310192349115_5.webp",
       },
       present: {
         title: "La Caída del Reino",
+        text1first: "B",
         text1:
-          "Bajo el pueblo abandonado de Dirtmouth se extienden las ruinas de Hallownest, un otrora próspero reino de insectos que yace en ruinas tras una misteriosa plaga.",
+          "ajo el pueblo abandonado de Dirtmouth se extienden las ruinas de Hallownest, un otrora próspero reino de insectos que yace en ruinas tras una misteriosa plaga.",
+        text2first: "C",
         text2:
-          "Como el Caballero, un misterioso viajero sin nombre, te adentrarás en las profundidades de este reino olvidado. A medida que explores, descubrirás la trágica historia de Hallownest.",
+          "omo el Caballero, un misterioso viajero sin nombre, te adentrarás en las profundidades de este reino olvidado. A medida que explores, descubrirás la trágica historia de Hallownest.",
         image: "/img/shadow.png",
       },
       future: {
         title: "La Esperanza de Renacimiento",
+        text1first: "A",
         text1:
-          "A pesar de la corrupción, hay esperanza. Antiguas profecías hablan de un portador de luz que podrá purificar la Radiancia y restaurar el equilibrio.",
+          " pesar de la corrupción, hay esperanza. Antiguas profecías hablan de un portador de luz que podrá purificar la Radiancia y restaurar el equilibrio.",
+        text2first: "E",
         text2:
-          "El futuro de Hallownest depende de aquellos valientes que se atreven a desafiar la oscuridad. Con cada enemigo vencido y cada secreto descubierto, el reino se acerca un paso más a la redención.",
+          "l futuro de Hallownest depende de aquellos valientes que se atreven a desafiar la oscuridad. Con cada enemigo vencido y cada secreto descubierto, el reino se acerca un paso más a la redención.",
         image: "/img/hornet.webp",
       },
     };
@@ -167,61 +188,57 @@ import ShadowModal from "./ShadowModal.astro";
       // Update timeline points
       document.querySelectorAll(".timeline-point").forEach((point) => {
         const pointEra = point.dataset.era;
-        const dot = point.querySelector(".w-4");
+        const dot = point.querySelector("[data-dot]");
+        if (!dot) return;
         if (pointEra === era) {
-          dot.classList.add("ring-4", "ring-[var(--accent-color)]");
-          dot.classList.remove(
-            "bg-[var(--accent-color)]",
-            "bg-[var(--secondary-color)]",
-          );
-          dot.classList.add("bg-white");
+          dot.style.background = "#fff";
+          dot.style.boxShadow =
+            "0 0 0 4px var(--accent-color), 0 0 20px rgba(138,43,226,0.5)";
         } else {
-          dot.classList.remove(
-            "ring-4",
-            "ring-[var(--accent-color)]",
-            "bg-white",
-          );
-          dot.classList.add(
+          dot.style.boxShadow = "none";
+          dot.style.background =
             pointEra === "present"
-              ? "bg-[var(--secondary-color)]"
-              : "bg-[var(--accent-color)]",
-          );
+              ? "var(--secondary-color)"
+              : "var(--accent-color)";
         }
       });
 
       // Fade out current content
       container.style.opacity = "0";
+      container.style.transform = "translateY(10px)";
 
       setTimeout(() => {
-        // Update content with animation
         container.innerHTML = `
-          <div class="story-text text-lg leading-relaxed relative p-10 rounded-xl bg-[rgba(20,20,30,0.6)] shadow-xl border border-white/10 backdrop-blur fade-in slide-in-left">
-            <h3 class="text-2xl font-bold mb-6 text-[var(--accent-color)] font-cinzel">${content.title}</h3>
-            <p class="mb-8 pl-2 text-white/90 text-pretty relative">
-              <span class="first-letter float-left text-6xl md:text-7xl font-bold mr-2 mt-1 mb-[-0.1em] text-[var(--accent-color)] drop-shadow-[0_0_15px_rgba(138,43,226,0.7)] font-cinzel bg-gradient-to-br from-[#8a2be2] to-[#00bfff] bg-clip-text text-transparent relative z-10">B</span>
+          <div class="story-text text-lg leading-relaxed relative p-10 rounded-xl bg-[rgba(20,20,30,0.6)] shadow-xl border border-white/10 backdrop-blur-sm" style="opacity:1;transform:none;">
+            <h3 class="text-2xl font-bold mb-6 font-cinzel" style="color:var(--accent-color);">${content.title}</h3>
+            <p class="mb-8 pl-2 text-pretty" style="color:rgba(255,255,255,0.9);">
+              <span style="float:left;font-size:3.5rem;font-weight:700;margin-right:0.5rem;margin-top:0.25rem;margin-bottom:-0.1em;background:linear-gradient(135deg,#8a2be2,#00bfff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Cinzel',serif;position:relative;z-index:10;filter:drop-shadow(0 0 15px rgba(138,43,226,0.7));">${content.text1first}</span>
               ${content.text1}
             </p>
-            <p class="pl-2 text-white/90 text-pretty relative">
-              <span class="first-letter float-left text-6xl md:text-7xl font-bold mr-2 mt-1 mb-[-0.1em] text-[var(--accent-color)] drop-shadow-[0_0_15px_rgba(138,43,226,0.7)] font-cinzel bg-gradient-to-br from-[#8a2be2] to-[#00bfff] bg-clip-text text-transparent relative z-10">C</span>
+            <p class="pl-2 text-pretty" style="color:rgba(255,255,255,0.9);">
+              <span style="float:left;font-size:3.5rem;font-weight:700;margin-right:0.5rem;margin-top:0.25rem;margin-bottom:-0.1em;background:linear-gradient(135deg,#8a2be2,#00bfff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Cinzel',serif;position:relative;z-index:10;filter:drop-shadow(0 0 15px rgba(138,43,226,0.7));">${content.text2first}</span>
               ${content.text2}
             </p>
           </div>
-          <div class="story-image flex justify-center items-center py-8 fade-in slide-in-right">
-            <img src="${content.image}" alt="${content.title}" class="w-4/5 max-w-lg mx-auto drop-shadow-xl hover:drop-shadow-[0_0_30px_rgba(255,255,255,0.6)] cursor-pointer transition duration-700 ease-in-out glow-hover parallax" data-speed="0.3" />
+          <div class="story-image flex justify-center items-center py-8" style="opacity:1;transform:none;">
+            <img src="${content.image}" alt="${content.title}" style="width:80%;max-width:32rem;margin:0 auto;filter:drop-shadow(0 10px 20px rgba(0,0,0,0.5));cursor:pointer;transition:all 0.7s ease-in-out;" onmouseover="this.style.filter='drop-shadow(0 0 30px rgba(255,255,255,0.6))'" onmouseout="this.style.filter='drop-shadow(0 10px 20px rgba(0,0,0,0.5))'" />
           </div>
         `;
         container.style.opacity = "1";
-      }, 300);
+        container.style.transform = "translateY(0)";
+      }, 350);
 
       // Add celebration particles
-      for (let i = 0; i < 15; i++) {
-        setTimeout(() => {
-          const rect = event.target.getBoundingClientRect();
-          createParticle(
-            rect.left + rect.width / 2,
-            rect.top + rect.height / 2,
-          );
-        }, i * 30);
+      if (typeof createParticle === "function") {
+        for (let i = 0; i < 15; i++) {
+          setTimeout(() => {
+            const rect = event.target.getBoundingClientRect();
+            createParticle(
+              rect.left + rect.width / 2,
+              rect.top + rect.height / 2,
+            );
+          }, i * 30);
+        }
       }
     }
 

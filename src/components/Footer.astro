@@ -3,153 +3,178 @@
 ---
 
 <footer
-  class="footer bg-[#0a0815] pt-16 pb-8 px-4 border-t border-[rgba(93,63,211,0.2)]"
+  class="footer relative pt-20 pb-10 px-6 overflow-hidden"
+  style="background: linear-gradient(180deg, #080814 0%, #050510 100%); border-top: 1px solid rgba(155,109,255,0.08);"
 >
+  <!-- Decorative top gradient line -->
   <div
-    class="footer-content max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12"
+    class="absolute top-0 left-0 right-0 h-px"
+    style="background: linear-gradient(90deg, transparent, var(--accent-color), var(--tertiary-color), var(--accent-color), transparent);"
+  >
+  </div>
+
+  <div
+    class="footer-content max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 mb-16"
   >
     <div class="footer-logo flex flex-col items-start gap-4">
       <img
         src="/img/hollow-knight-4272059.webp"
         alt="Hollow Knight Logo"
-        class="h-12 w-auto"
+        class="h-10 w-auto opacity-80"
       />
-      <span class="font-cinzel text-lg font-bold text-white">Hollow Knight</span>
+      <span class="font-cinzel text-base font-bold text-white/90 tracking-wider"
+        >Hollow Knight</span
+      >
+      <p class="text-white/40 text-sm font-body leading-relaxed max-w-[250px]">
+        Adéntrate en las profundidades de Hallownest y descubre los secretos de
+        un reino olvidado.
+      </p>
     </div>
     <div class="footer-links grid grid-cols-3 gap-8">
       <div class="footer-section">
         <h4
-          class="text-white text-base font-semibold mb-6 relative inline-block after:block after:absolute after:bottom-[-5px] after:left-0 after:w-10 after:h-0.5 after:bg-[var(--secondary-color)]"
+          class="font-cinzel text-xs tracking-[0.2em] uppercase text-white/90 mb-5 relative inline-block"
         >
           Explorar
+          <span
+            class="block absolute bottom-[-4px] left-0 w-6 h-px"
+            style="background: var(--accent-color);"></span>
         </h4>
-        <ul>
-          <li class="mb-2">
+        <ul class="space-y-2.5">
+          <li>
             <a
               href="#inicio"
-              class="text-gray-300 hover:text-white transition-colors"
-              >Inicio</a
-            >
+              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
+              >Inicio</a>
           </li>
-          <li class="mb-2">
+          <li>
             <a
               href="#historia"
-              class="text-gray-300 hover:text-white transition-colors"
-              >Historia</a
-            >
+              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
+              >Historia</a>
           </li>
-          <li class="mb-2">
+          <li>
             <a
               href="#personajes"
-              class="text-gray-300 hover:text-white transition-colors"
-              >Personajes</a
-            >
-          </li>
-          <li class="mb-2">
-            <a
-              href="#galeria"
-              class="text-gray-300 hover:text-white transition-colors"
-              >Galería</a
-            >
+              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
+              >Personajes</a>
           </li>
         </ul>
       </div>
       <div class="footer-section">
         <h4
-          class="text-white text-base font-semibold mb-6 relative inline-block after:block after:absolute after:bottom-[-5px] after:left-0 after:w-10 after:h-0.5 after:bg-[var(--secondary-color)]"
+          class="font-cinzel text-xs tracking-[0.2em] uppercase text-white/90 mb-5 relative inline-block"
         >
           Comunidad
+          <span
+            class="block absolute bottom-[-4px] left-0 w-6 h-px"
+            style="background: var(--accent-color);"></span>
         </h4>
-        <ul>
-          <li class="mb-2">
+        <ul class="space-y-2.5">
+          <li>
             <a
               href="#"
-              class="text-gray-300 hover:text-white transition-colors"
+              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
               >Foros</a>
           </li>
-          <li class="mb-2">
+          <li>
             <a
               href="#"
-              class="text-gray-300 hover:text-white transition-colors"
+              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
               >Guías</a>
           </li>
-          <li class="mb-2">
+          <li>
             <a
               href="#"
-              class="text-gray-300 hover:text-white transition-colors"
+              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
               >Eventos</a>
           </li>
         </ul>
       </div>
       <div class="footer-section">
         <h4
-          class="text-white text-base font-semibold mb-6 relative inline-block after:block after:absolute after:bottom-[-5px] after:left-0 after:w-10 after:h-0.5 after:bg-[var(--secondary-color)]"
+          class="font-cinzel text-xs tracking-[0.2em] uppercase text-white/90 mb-5 relative inline-block"
         >
           Legal
+          <span
+            class="block absolute bottom-[-4px] left-0 w-6 h-px"
+            style="background: var(--accent-color);"></span>
         </h4>
-        <ul>
-          <li class="mb-2">
+        <ul class="space-y-2.5">
+          <li>
             <a
               href="#"
-              class="text-gray-300 hover:text-white transition-colors"
-              >Términos de uso</a
-            >
+              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
+              >Términos</a>
           </li>
-          <li class="mb-2">
+          <li>
             <a
               href="#"
-              class="text-gray-300 hover:text-white transition-colors"
-              >Política de privacidad</a
-            >
+              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
+              >Privacidad</a>
           </li>
-          <li class="mb-2">
+          <li>
             <a
               href="#"
-              class="text-gray-300 hover:text-white transition-colors"
-              >Cookies</a
-            >
+              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
+              >Cookies</a>
           </li>
         </ul>
       </div>
     </div>
-    <div class="footer-social flex flex-col items-end gap-6">
-      <a
-        href="#"
-        aria-label="Twitter"
-        class="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--card-bg)] text-white text-lg hover:bg-[var(--secondary-color)] hover:-translate-y-1 transition-all"
-        ><i class="fab fa-twitter"></i></a
+    <div
+      class="footer-social flex md:flex-col md:items-end flex-row flex-wrap gap-3"
+    >
+      <span
+        class="font-cinzel text-xs tracking-[0.2em] uppercase text-white/90 mb-2 w-full md:text-right"
+        >Síguenos</span
       >
-      <a
-        href="#"
-        aria-label="Facebook"
-        class="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--card-bg)] text-white text-lg hover:bg-[var(--secondary-color)] hover:-translate-y-1 transition-all"
-        ><i class="fab fa-facebook"></i></a
-      >
-      <a
-        href="#"
-        aria-label="Instagram"
-        class="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--card-bg)] text-white text-lg hover:bg-[var(--secondary-color)] hover:-translate-y-1 transition-all"
-        ><i class="fab fa-instagram"></i></a
-      >
-      <a
-        href="#"
-        aria-label="YouTube"
-        class="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--card-bg)] text-white text-lg hover:bg-[var(--secondary-color)] hover:-translate-y-1 transition-all"
-        ><i class="fab fa-youtube"></i></a
-      >
+      <div class="flex gap-3">
+        <a
+          href="#"
+          aria-label="Twitter"
+          class="flex items-center justify-center w-9 h-9 rounded-sm text-white/50 text-sm hover:text-white transition-all duration-300"
+          style="background: rgba(155,109,255,0.08); border: 1px solid rgba(155,109,255,0.1);"
+          >𝕏</a
+        >
+        <a
+          href="#"
+          aria-label="Discord"
+          class="flex items-center justify-center w-9 h-9 rounded-sm text-white/50 text-sm hover:text-white transition-all duration-300"
+          style="background: rgba(155,109,255,0.08); border: 1px solid rgba(155,109,255,0.1);"
+          >D</a
+        >
+        <a
+          href="#"
+          aria-label="Reddit"
+          class="flex items-center justify-center w-9 h-9 rounded-sm text-white/50 text-sm hover:text-white transition-all duration-300"
+          style="background: rgba(155,109,255,0.08); border: 1px solid rgba(155,109,255,0.1);"
+          >R</a
+        >
+        <a
+          href="#"
+          aria-label="YouTube"
+          class="flex items-center justify-center w-9 h-9 rounded-sm text-white/50 text-sm hover:text-white transition-all duration-300"
+          style="background: rgba(155,109,255,0.08); border: 1px solid rgba(155,109,255,0.1);"
+          >Y</a
+        >
+      </div>
     </div>
   </div>
   <div
-    class="footer-bottom max-w-6xl mx-auto pt-8 border-none text-center text-white text-sm"
+    class="max-w-7xl mx-auto pt-8 text-center"
+    style="border-top: 1px solid rgba(155,109,255,0.06);"
   >
-    <p class="mb-2">
-      &copy; <span id="footer-year"></span> Hollow Knight - Hallownest. Todos los
+    <p class="text-white/30 text-xs font-mono tracking-wider">
+      &copy; <span id="footer-year"></span> Hollow Knight — Hallownest. Todos los
       derechos reservados.
       <script is:inline>
         document.getElementById("footer-year").textContent =
           new Date().getFullYear();
       </script>
     </p>
-    <p>Desarrollado con ❤️ para los fans de Hallownest</p>
+    <p class="text-white/20 text-xs font-body mt-2">
+      Desarrollado para los fans de Hallownest
+    </p>
   </div>
 </footer>
