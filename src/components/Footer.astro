@@ -4,9 +4,14 @@
 
 <footer
   class="footer relative pt-20 pb-10 px-6 overflow-hidden"
-  style="background: linear-gradient(180deg, #080814 0%, #050510 100%); border-top: 1px solid rgba(155,109,255,0.08);"
+  style="background: linear-gradient(180deg, #07070d 0%, #080814 40%, #02020a 100%); border-top: 1px solid rgba(155,109,255,0.12);"
 >
-  <!-- Decorative top gradient line -->
+  <div
+    class="absolute inset-0 opacity-20"
+    style="background: radial-gradient(circle at 20% 10%, rgba(155,109,255,0.35), transparent 35%), radial-gradient(circle at 80% 80%, rgba(0,200,255,0.45), transparent 35%);"
+  >
+  </div>
+
   <div
     class="absolute top-0 left-0 right-0 h-px"
     style="background: linear-gradient(90deg, transparent, var(--accent-color), var(--tertiary-color), var(--accent-color), transparent);"
@@ -14,172 +19,227 @@
   </div>
 
   <div
-    class="footer-content max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 mb-16"
+    class="footer-content max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-10 md:gap-16 mb-14 relative z-10"
   >
-    <div class="footer-logo flex flex-col items-start gap-4">
+    <div class="footer-brand space-y-4">
       <img
         src="/img/hollow-knight-4272059.webp"
-        alt="Hollow Knight Logo"
-        class="h-10 w-auto opacity-80"
+        alt="Hollow Knight"
+        class="h-10 w-auto opacity-90"
       />
-      <span class="font-cinzel text-base font-bold text-white/90 tracking-wider"
-        >Hollow Knight</span
+      <h3 class="text-xl md:text-2xl font-cinzel text-white font-bold">
+        Hallownest
+      </h3>
+      <p class="text-white/50 text-sm leading-relaxed max-w-[280px]">
+        Un misticismo de sombras y leyenda. Sigue explorando este mundo y sus
+        enigmas.
+      </p>
+      <a
+        href="#inicio"
+        class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[var(--secondary-color)] to-[var(--accent-color)] text-white text-xs uppercase tracking-wider rounded-sm shadow-lg hover:brightness-110 transition-all duration-300"
+        ><span>Volver arriba</span></a
       >
-      <p class="text-white/40 text-sm font-body leading-relaxed max-w-[250px]">
-        Adéntrate en las profundidades de Hallownest y descubre los secretos de
-        un reino olvidado.
+    </div>
+
+    <div>
+      <h4
+        class="font-cinzel text-xs tracking-[0.2em] uppercase text-white/80 mb-4"
+      >
+        Navegación
+      </h4>
+      <ul class="space-y-3">
+        <li>
+          <a
+            href="#inicio"
+            class="text-white/50 hover:text-white transition-colors">Inicio</a
+          >
+        </li>
+        <li>
+          <a
+            href="#historia"
+            class="text-white/50 hover:text-white transition-colors">Historia</a
+          >
+        </li>
+        <li>
+          <a
+            href="#personajes"
+            class="text-white/50 hover:text-white transition-colors"
+            >Personajes</a
+          >
+        </li>
+        <li>
+          <a href="#" class="text-white/50 hover:text-white transition-colors"
+            >Lore</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h4
+        class="font-cinzel text-xs tracking-[0.2em] uppercase text-white/80 mb-4"
+      >
+        Comunidad
+      </h4>
+      <ul class="space-y-3">
+        <li>
+          <a href="#" class="text-white/50 hover:text-white transition-colors"
+            >Foros</a
+          >
+        </li>
+        <li>
+          <a href="#" class="text-white/50 hover:text-white transition-colors"
+            >Guías</a
+          >
+        </li>
+        <li>
+          <a href="#" class="text-white/50 hover:text-white transition-colors"
+            >Eventos</a
+          >
+        </li>
+        <li>
+          <a href="#" class="text-white/50 hover:text-white transition-colors"
+            >Soporte</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4
+        class="font-cinzel text-xs tracking-[0.2em] uppercase text-white/80 mb-3"
+      >
+        Síguenos
+      </h4>
+      <div class="social-icons-compact">
+        <a href="#" aria-label="Twitter" class="social-icon-compact">
+          <span class="icon">𝕏</span>
+        </a>
+        <a href="#" aria-label="Discord" class="social-icon-compact">
+          <span class="icon">💬</span>
+        </a>
+        <a href="#" aria-label="Reddit" class="social-icon-compact">
+          <span class="icon">👾</span>
+        </a>
+        <a href="#" aria-label="YouTube" class="social-icon-compact">
+          <span class="icon">▶</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="max-w-7xl mx-auto pt-6 relative z-10"
+    style="border-top: 1px solid rgba(155,109,255,0.08);"
+  >
+    <div
+      class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 text-center md:text-left"
+    >
+      <p class="text-white/30 text-xs font-mono tracking-wider">
+        &copy; <span id="footer-year"></span> Hollow Knight — Hallownest. Todos los
+        derechos reservados.
+      </p>
+      <p class="text-white/30 text-xs font-body">
+        Creado con devoción por fans de Hallownest
       </p>
     </div>
-    <div class="footer-links grid grid-cols-3 gap-8">
-      <div class="footer-section">
-        <h4
-          class="font-cinzel text-xs tracking-[0.2em] uppercase text-white/90 mb-5 relative inline-block"
-        >
-          Explorar
-          <span
-            class="block absolute bottom-[-4px] left-0 w-6 h-px"
-            style="background: var(--accent-color);"></span>
-        </h4>
-        <ul class="space-y-2.5">
-          <li>
-            <a
-              href="#inicio"
-              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
-              >Inicio</a
-            >
-          </li>
-          <li>
-            <a
-              href="#historia"
-              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
-              >Historia</a
-            >
-          </li>
-          <li>
-            <a
-              href="#personajes"
-              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
-              >Personajes</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4
-          class="font-cinzel text-xs tracking-[0.2em] uppercase text-white/90 mb-5 relative inline-block"
-        >
-          Comunidad
-          <span
-            class="block absolute bottom-[-4px] left-0 w-6 h-px"
-            style="background: var(--accent-color);"></span>
-        </h4>
-        <ul class="space-y-2.5">
-          <li>
-            <a
-              href="#"
-              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
-              >Foros</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
-              >Guías</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
-              >Eventos</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4
-          class="font-cinzel text-xs tracking-[0.2em] uppercase text-white/90 mb-5 relative inline-block"
-        >
-          Legal
-          <span
-            class="block absolute bottom-[-4px] left-0 w-6 h-px"
-            style="background: var(--accent-color);"></span>
-        </h4>
-        <ul class="space-y-2.5">
-          <li>
-            <a
-              href="#"
-              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
-              >Términos</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
-              >Privacidad</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="text-white/40 hover:text-white/80 transition-colors duration-300 text-sm font-body"
-              >Cookies</a
-            >
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div
-      class="footer-social flex md:flex-col md:items-end flex-row flex-wrap gap-3"
-    >
-      <span
-        class="font-cinzel text-xs tracking-[0.2em] uppercase text-white/90 mb-2 w-full md:text-right"
-        >Síguenos</span
-      >
-      <div class="flex gap-3">
-        <a
-          href="#"
-          aria-label="Twitter"
-          class="flex items-center justify-center w-9 h-9 rounded-sm text-white/50 text-sm hover:text-white transition-all duration-300"
-          style="background: rgba(155,109,255,0.08); border: 1px solid rgba(155,109,255,0.1);"
-          >𝕏</a
-        >
-        <a
-          href="#"
-          aria-label="Discord"
-          class="flex items-center justify-center w-9 h-9 rounded-sm text-white/50 text-sm hover:text-white transition-all duration-300"
-          style="background: rgba(155,109,255,0.08); border: 1px solid rgba(155,109,255,0.1);"
-          >D</a
-        >
-        <a
-          href="#"
-          aria-label="Reddit"
-          class="flex items-center justify-center w-9 h-9 rounded-sm text-white/50 text-sm hover:text-white transition-all duration-300"
-          style="background: rgba(155,109,255,0.08); border: 1px solid rgba(155,109,255,0.1);"
-          >R</a
-        >
-        <a
-          href="#"
-          aria-label="YouTube"
-          class="flex items-center justify-center w-9 h-9 rounded-sm text-white/50 text-sm hover:text-white transition-all duration-300"
-          style="background: rgba(155,109,255,0.08); border: 1px solid rgba(155,109,255,0.1);"
-          >Y</a
-        >
-      </div>
-    </div>
   </div>
-  <div
-    class="max-w-7xl mx-auto pt-8 text-center"
-    style="border-top: 1px solid rgba(155,109,255,0.06);"
-  >
-    <p class="text-white/30 text-xs font-mono tracking-wider">
-      &copy; <span id="footer-year"></span> Hollow Knight — Hallownest. Todos los
-      derechos reservados.
-    </p>
-    <p class="text-white/20 text-xs font-body mt-2">
-      Desarrollado para los fans de Hallownest
-    </p>
-  </div>
+
+  <script>
+    const yearEl = document.getElementById("footer-year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
+  </script>
 </footer>
+
+<style>
+  .social-icons-compact {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .social-icon-compact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(
+      135deg,
+      rgba(155, 109, 255, 0.15),
+      rgba(0, 200, 255, 0.1)
+    );
+    border: 1px solid rgba(155, 109, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .social-icon-compact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.1),
+      transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .social-icon-compact:hover {
+    transform: translateY(-3px) scale(1.05);
+    border-color: rgba(155, 109, 255, 0.4);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(155, 109, 255, 0.3);
+  }
+
+  .social-icon-compact:hover::before {
+    opacity: 1;
+  }
+
+  .social-icon-compact .icon {
+    font-size: 1.1rem;
+    font-weight: 600;
+    z-index: 1;
+    position: relative;
+  }
+
+  @media (max-width: 640px) {
+    .social-icons-compact {
+      gap: 0.625rem;
+      justify-content: center;
+    }
+
+    .social-icon-compact {
+      width: 40px;
+      height: 40px;
+    }
+
+    .social-icon-compact .icon {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .social-icons-compact {
+      gap: 0.5rem;
+    }
+
+    .social-icon-compact {
+      width: 36px;
+      height: 36px;
+    }
+
+    .social-icon-compact .icon {
+      font-size: 0.875rem;
+    }
+  }
+</style>

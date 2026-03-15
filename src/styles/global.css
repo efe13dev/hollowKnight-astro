@@ -315,6 +315,35 @@ body::after {
 	.shimmer-border:hover::before {
 		opacity: 1;
 	}
+
+	.hallownest-animated {
+		background-image: linear-gradient(
+			90deg,
+			var(--accent-color) 0%,
+			var(--accent-color) 35%,
+			var(--tertiary-color) 50%,
+			var(--accent-color) 65%,
+			var(--accent-color) 100%
+		);
+		background-size: 220% 100%;
+		background-position: 0% 50%;
+		animation: hallownest-shift 10s linear infinite;
+	}
+
+	@keyframes hallownest-shift {
+		0% {
+			background-position: 0% 50%;
+			filter: drop-shadow(0 0 8px rgba(155, 109, 255, 0.2));
+		}
+		50% {
+			background-position: 100% 50%;
+			filter: drop-shadow(0 0 14px rgba(0, 200, 255, 0.35));
+		}
+		100% {
+			background-position: 0% 50%;
+			filter: drop-shadow(0 0 8px rgba(155, 109, 255, 0.2));
+		}
+	}
 	@keyframes shimmer {
 		0%, 100% { background-position: 100% 0%; }
 		50% { background-position: 0% 100%; }

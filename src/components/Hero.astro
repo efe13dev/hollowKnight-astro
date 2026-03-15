@@ -18,8 +18,9 @@
   </div>
 
   <!-- Canvas para partículas atmosféricas (Esporas / Polvo) -->
-  <canvas id="hero-particles" class="absolute inset-0 z-0 pointer-events-none opacity-60"></canvas>
-
+  <canvas
+    id="hero-particles"
+    class="absolute inset-0 z-0 pointer-events-none opacity-60"></canvas>
 
   <!-- Parallax Background Layer -->
   <div
@@ -45,7 +46,7 @@
       style="text-shadow: 0 0 40px rgba(155,109,255,0.3), 0 2px 10px rgba(0,0,0,0.8);"
     >
       Descubre el Reino de <span
-        class="bg-gradient-to-r from-[var(--accent-color)] via-[var(--tertiary-color)] to-[var(--accent-color)] bg-clip-text text-transparent"
+        class="hallownest-animated inline-block bg-gradient-to-r from-[var(--accent-color)] via-[var(--tertiary-color)] to-[var(--accent-color)] bg-clip-text text-transparent"
         >Hallownest</span
       >
     </h1>
@@ -86,19 +87,27 @@
 
 <script>
   // Dust Particles System for Hero
-  const canvas = document.getElementById('hero-particles') as HTMLCanvasElement | null;
+  const canvas = document.getElementById(
+    "hero-particles",
+  ) as HTMLCanvasElement | null;
   if (canvas) {
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (ctx) {
-      let width = canvas.width = window.innerWidth;
-      let height = canvas.height = window.innerHeight;
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
 
-      window.addEventListener('resize', () => {
+      window.addEventListener("resize", () => {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
       });
 
-      const particles: {x: number, y: number, r: number, vx: number, vy: number}[] = [];
+      const particles: {
+        x: number;
+        y: number;
+        r: number;
+        vx: number;
+        vy: number;
+      }[] = [];
       const particleCount = window.innerWidth < 768 ? 40 : 100;
 
       for (let i = 0; i < particleCount; i++) {
@@ -114,12 +123,12 @@
       function draw() {
         if (!ctx) return;
         ctx.clearRect(0, 0, width, height);
-        
+
         for (let i = 0; i < particleCount; i++) {
           const p = particles[i];
           ctx.beginPath();
           // Add a soft glow effect to particles
-          ctx.fillStyle = `rgba(155, 109, 255, ${Math.random() * 0.3 + 0.2})`; 
+          ctx.fillStyle = `rgba(155, 109, 255, ${Math.random() * 0.3 + 0.2})`;
           ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
           ctx.fill();
         }
@@ -134,7 +143,7 @@
           // Wrap around with slight random repositioning
           if (p.x > width + 5) p.x = -5;
           else if (p.x < -5) p.x = width + 5;
-          
+
           if (p.y > height + 5) {
             p.y = -5;
             p.x = Math.random() * width;
@@ -146,7 +155,7 @@
         draw();
         requestAnimationFrame(update);
       }
-      
+
       update();
     }
   }
