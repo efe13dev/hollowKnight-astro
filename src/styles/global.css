@@ -427,9 +427,9 @@ body::after {
 
 	.knight-eye {
 		position: absolute;
-		top: 36.5%;
-		width: 8.8%;
-		height: 12.5%;
+		top: 38.5%;
+		width: 8%;
+		height: 10%;
 		border-radius: 999px;
 		opacity: 0;
 		pointer-events: none;
@@ -441,8 +441,8 @@ body::after {
 	}
 
 	.knight-eye-left {
-		left: 40.8%;
-		top: 38.5%;
+		left: 41.5%;
+		top: 40%;
 		rotate: -4deg;
 	}
 
