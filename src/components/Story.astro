@@ -6,8 +6,8 @@ import ShadowModal from "./ShadowModal.astro";
   id="historia"
   class="story py-16 px-4 bg-gradient-to-b from-black/80 via-[#18192b] to-[#18192b] relative overflow-hidden"
 >
-  <!-- Section Title -->
-  <div class="text-center mb-16 fade-in">
+    <!-- Section Title -->
+    <div class="text-center mb-16 fade-in" role="heading" aria-level="2">
     <span
       class="inline-block text-[var(--tertiary-color)] font-mono text-xs tracking-[0.3em] uppercase mb-3 opacity-60"
       >// Cronología</span
@@ -137,8 +137,10 @@ import ShadowModal from "./ShadowModal.astro";
     >
       <img
         src="/img/shadow.png"
-        alt="Reino de Hallownest"
+        alt="Sombra del Caballero emergiendo del Void, representando la esencia oscura del protagonista"
         id="shadow-img"
+        loading="lazy"
+        decoding="async"
         class="w-4/5 max-w-lg mx-auto drop-shadow-xl hover:drop-shadow-[0_0_30px_rgba(255,255,255,0.6)] cursor-pointer transition duration-700 ease-in-out glow-hover parallax"
         data-speed="0.3"
       />

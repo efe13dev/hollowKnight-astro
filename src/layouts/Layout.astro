@@ -9,7 +9,24 @@ import SectionTransition from "../components/SectionTransition.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hollow Knight - Hallownest</title>
+    <meta name="description" content="Explora el reino olvidado de Hallownest. Descubre la historia, personajes y secretos de Hollow Knight en este tributo interactivo al aclamado juego de Team Cherry." />
+    <meta name="keywords" content="Hollow Knight, Hallownest, Team Cherry, Caballero, Hornet, indie game, metroidvania" />
+    <meta name="author" content="Hallownest Explorer" />
+    <link rel="canonical" href="https://hollowverse.netlify.app/" />
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hollowverse.netlify.app/" />
+    <meta property="og:title" content="Hollow Knight - Hallownest Explorer" />
+    <meta property="og:description" content="Explora el reino olvidado de Hallownest. Descubre la historia, personajes y secretos de Hollow Knight." />
+    <meta property="og:image" content="https://hollowverse.netlify.app/img/67ed144aba13e.webp" />
+    <meta property="og:locale" content="es_ES" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://hollowverse.netlify.app/" />
+    <meta name="twitter:title" content="Hollow Knight - Hallownest Explorer" />
+    <meta name="twitter:description" content="Explora el reino olvidado de Hallownest. Descubre la historia, personajes y secretos de Hollow Knight." />
+    <meta name="twitter:image" content="https://hollowverse.netlify.app/img/67ed144aba13e.webp" />
+    <meta name="theme-color" content="#060610" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,6 +36,12 @@ import SectionTransition from "../components/SectionTransition.astro";
     <meta name="generator" content={Astro.generator} />
   </head>
   <body class="bg-[var(--background-dark)] text-[var(--text-primary)] relative">
+    <a
+      href="#main-content"
+      class="skip-link sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[var(--accent-color)] focus:text-white focus:rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+    >
+      Saltar al contenido principal
+    </a>
     <!-- Preloader -->
     <div
       id="preloader"
@@ -27,7 +50,7 @@ import SectionTransition from "../components/SectionTransition.astro";
     >
       <img
         src="/img/hollow-knight-Logo.png"
-        alt="Cargando"
+        alt="Logo de Hollow Knight - Cargando contenido"
         class="w-20 mb-8 opacity-80"
         style="animation: pulse 2s ease-in-out infinite;"
       />
@@ -69,7 +92,7 @@ import SectionTransition from "../components/SectionTransition.astro";
     </button>
     <Header />
     <SectionTransition />
-    <main class="p-0">
+    <main id="main-content" class="p-0">
       <slot />
     </main>
     <script>
