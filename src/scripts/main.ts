@@ -1,6 +1,5 @@
 import { initCharactersInteractions } from "./characters.js";
 import { initVisualEffects } from "./effects.js";
-import { initFooter } from "./footer.js";
 import { initHeaderInteractions } from "./header.js";
 import { initHeroInteractions } from "./hero.js";
 import { initAnchorNavigation } from "./navigation.js";
@@ -14,7 +13,6 @@ export function initApp(): void {
     initHeroInteractions();
     initStoryInteractions();
     initCharactersInteractions();
-    initFooter();
   };
 
   if (document.readyState === "loading") {

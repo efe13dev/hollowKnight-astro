@@ -1,3 +1,5 @@
+import { celebrate } from "./effects.js";
+
 function selectCharacter(card: HTMLElement, characterName: string): void {
   document.querySelectorAll<HTMLElement>(".character-card").forEach((c) => {
     c.style.boxShadow = "none";
@@ -21,11 +23,8 @@ function selectCharacter(card: HTMLElement, characterName: string): void {
     display.style.pointerEvents = "auto";
   }
 
-  const effects = window.HKEffects;
-  if (effects) {
-    const rect = card.getBoundingClientRect();
-    effects.celebrate(rect.left + rect.width / 2, rect.top + rect.height / 2, 10);
-  }
+  const rect = card.getBoundingClientRect();
+  celebrate(rect.left + rect.width / 2, rect.top + rect.height / 2, 10);
 }
 
 function initCharacterSelection(): void {

@@ -1,14 +1,3 @@
-type EffectsApi = {
-  createParticle: (x: number, y: number) => void;
-  celebrate: (x: number, y: number, count?: number) => void;
-};
-
-declare global {
-  interface Window {
-    HKEffects?: EffectsApi;
-  }
-}
-
 function isReducedMotionEnabled(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
@@ -141,6 +130,12 @@ function initParallax(): void {
   );
 }
 
+export function celebrate(x: number, y: number, count = 10): void {
+  for (let i = 0; i < count; i += 1) {
+    window.setTimeout(() => createParticle(x, y), i * 45);
+  }
+}
+
 export function initVisualEffects(): void {
   hidePreloader();
   initRevealObserver();
@@ -151,13 +146,4 @@ export function initVisualEffects(): void {
     initParticleTrail();
     initParallax();
   }, 900);
-
-  window.HKEffects = {
-    createParticle,
-    celebrate: (x: number, y: number, count = 10) => {
-      for (let i = 0; i < count; i += 1) {
-        window.setTimeout(() => createParticle(x, y), i * 45);
-      }
-    },
-  };
 }

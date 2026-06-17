@@ -20,13 +20,7 @@ function scrollToAnchor(targetId: string): void {
   const targetElement = document.getElementById(targetId);
   if (!targetElement) return;
 
-  const headerOffset = 60;
-  const top = targetElement.getBoundingClientRect().top + window.scrollY - headerOffset;
-
-  window.scrollTo({
-    top,
-    behavior: "smooth",
-  });
+  targetElement.scrollIntoView({ behavior: "smooth" });
 }
 
 export function initAnchorNavigation(): void {

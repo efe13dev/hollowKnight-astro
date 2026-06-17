@@ -1,3 +1,5 @@
+import { celebrate } from "./effects.js";
+
 type EraContent = {
   title: string;
   text1first: string;
@@ -91,11 +93,8 @@ function renderEraContent(era: string): void {
 }
 
 function celebrateFromElement(element: HTMLElement, count = 15): void {
-  const effects = window.HKEffects;
-  if (!effects) return;
-
   const rect = element.getBoundingClientRect();
-  effects.celebrate(rect.left + rect.width / 2, rect.top + rect.height / 2, count);
+  celebrate(rect.left + rect.width / 2, rect.top + rect.height / 2, count);
 }
 
 function openShadowModal(): void {

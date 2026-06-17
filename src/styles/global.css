@@ -19,6 +19,10 @@
 .font-body { font-family: 'Cormorant Garamond', serif; }
 .font-mono { font-family: 'Fira Code', monospace; }
 
+/* Offset para scroll a anclas bajo el header fijo */
+section[id] { scroll-margin-top: 60px; }
+
+
 /* Base body styling */
 body {
 	font-family: 'Cormorant Garamond', serif;
